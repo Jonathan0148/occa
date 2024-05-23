@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+        {{ 'app.pages.chat.title.header' | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-vertical" fullscreen>
+  <div id="chat-parent">
+    <div id="chat-container">
+      <ion-row *ngFor="let conv of conversation; let i = index;" class="ion-padding">
+        <ion-col class="no-padding chat-row" [ngClass]="{ 'reverse': conv.sender}">
+          <div class="avatar-parent">
+            <div class="avatar-border"></div>
+            <img [src]="conv.image" class="avatar">
+          </div>
+          <div [ngClass]="{ 'name-row-parent-right': conv.sender,'name-row-parent-left': !conv.sender}">
+            <div class="ion-no-padding" [ngClass]="{ 'name-row-right': conv.sender,'name-row-left': !conv.sender}">
+              {{conv.sender ? 'You': broker.name}}
+              <div [ngClass]="{ 'timer-right': conv.sender,'timer-left': !conv.sender}">{{i+5}} mins ago
+                <ion-icon *ngIf="conv.sender && conv.sent" name="checkmark" [color]="conv.read ? 'd3green': 'light'"
+                  class="first-tick"></ion-icon>
+                <ion-icon *ngIf="conv.sender && conv.delivered" name="checkmark" [color]="conv.read ? 'd3green': 'light'"
+                  class="second-tick"></ion-icon>
+              </div>
+              <div [ngClass]="{ 'reverse-arc-right': conv.sender,'reverse-arc-left': !conv.sender}">
+                <div [ngClass]="{ 'reverse-arc-color-right': conv.sender,'reverse-arc-color-left': !conv.sender}"></div>
+              </div>
+            </div>
+            <div class="ion-no-padding" [ngClass]="{ 'message-row-right': conv.sender,'message-row-left': !conv.sender}">
+              <ion-text class="ion-no-margin text">{{conv.text}}</ion-text>
+            </div>
+          </div>
+
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>
+<ion-footer translucent>
+  <ion-row class="input-position">
+    <ion-col size="9" class="ion-no-padding">
+      <ion-input class="ion-padding-start input restrict" type="text" placeholder="Type a message" [(ngModel)]="input"></ion-input>
+    </ion-col>
+    <ion-col size="3" class="ion-no-padding">
+      <ion-button size="large" expand="full" class="ion-no-margin send-button" color="primary" (click)="send()">
+        <ion-text color="light">SEND</ion-text>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

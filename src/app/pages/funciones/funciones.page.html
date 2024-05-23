@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+        {{ 'app.pages.Funciones.title.header' | translate }}
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+    <div class="ion-no-margin" >
+      <form [formGroup]="onFuncionesForm">
+      <!-- # -->
+      <ion-item-group>
+        <ion-item-divider color="secondary"><ion-select  #T placeholder="Por favor Seleccione el Tipo de Funciones"  (ionChange)="GetCategoria(T.value)" [(ngModel)]="stLTipo" formControlName="stLTipo"  text-wrap> <ion-select-option  *ngFor="let item of dataAux;" value="{{item.TFUN_ID}}">{{item.TFUN_NOMBRE}}</ion-select-option> </ion-select></ion-item-divider>
+        <ion-item-divider color="secondary"><ion-select  #P placeholder="Por favor Seleccione la Categoría"  (ionChange)="GetFunciones(T.value, P.value)" [(ngModel)]="stLCategoria" formControlName="stLCategoria" text-wrap> <ion-select-option  *ngFor="let item of dataCat;" value="{{item.PREFUN_ID}}">{{item.PREFUN_PREGUNTA}}</ion-select-option> </ion-select></ion-item-divider>
+        <ion-item-divider>
+          Funciones
+        </ion-item-divider>
+          <div *ngIf="stLListaVisible === '1'">
+            <ion-item  class="bg-white" *ngFor="let dat of dataFunc" >
+              <ion-thumbnail slot="start">
+                <img [src]="stLRutaImg">
+
+              </ion-thumbnail>
+
+              <ion-label text-wrap text-justify>
+                <!--
+                <h2>
+                    <ion-text color="dark"><strong>{{dat.FUN_FUNCION}}</strong></ion-text>
+                </h2>
+                -->
+                <p class="text-12x">
+                  <ion-text color="primary">{{dat.FUN_FUNCION}}</ion-text>
+                </p>
+
+
+              </ion-label>
+            </ion-item>
+          </div>
+
+        </ion-item-group>
+
+
+
+      <!-- # -->
+      </form>
+    </div>
+
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ 'app.pages.invoices.title.header' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list class="ion-no-padding" [@staggerIn]="lastInvoices">
+
+    <ion-item class="bg-white" lines="none" *ngFor="let invoice of lastInvoices" tappable (click)="goCheckout(invoice.id)">
+      <ion-icon slot="start" name="list-box" color="primary"></ion-icon>
+      <ion-label>
+        <h2>
+          <ion-text color="dark"><strong>{{invoice.title}}</strong></ion-text>
+        </h2>
+        <p class="text-12x">
+          <ion-text color="secondary">{{invoice.date | date: 'dd/MM/yyyy'}}</ion-text>
+        </p>
+        <ion-badge *ngIf="!invoice.paid" color="warning">Pending</ion-badge>
+        <ion-badge *ngIf="invoice.paid" color="success">Paid</ion-badge>
+      </ion-label>
+      <ion-badge slot="end">{{invoice.value | currency}}</ion-badge>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

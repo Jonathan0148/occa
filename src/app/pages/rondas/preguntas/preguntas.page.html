@@ -1,0 +1,126 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <!--<ion-back-button></ion-back-button>-->
+      <ion-button size="small" shape="round" (click)="closeModal()" color="tertiary">
+        <ion-icon slot="start" name="arrow-round-back" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      {{stRNomPunto}}
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-slides pager="false" dir="ltr" [options]="slideOpts" >
+    <ion-slide  *ngFor="let datpre of dataAux" class="bg-profile" class="bg-cap" >
+      <ion-grid class="ion-no-padding" fixed>
+         <ion-row class="ion-no-padding">
+           <ion-col class="ion-no-padding">
+             <ion-button class="ion-no-margin" expand="full" size="medium" [color]="stLColorTab1"  (click)="SrOpenTab('0')">
+               Inspección
+             </ion-button>
+           </ion-col>
+           <ion-col class="ion-no-padding" *ngIf="stLNovedad==='0'">
+             <ion-button class="ion-no-margin" expand="full" size="medium" [color]="stLColorTab2" (click)="SrOpenTab('1')">
+               Detalle
+             </ion-button>
+           </ion-col>
+        </ion-row>
+        <form [formGroup]="onPreguntaRondForm">
+          <div *ngIf="TabPosition === '0'">
+            <ion-card>
+              <ion-card-content>
+                <ion-item-divider color="dark">
+                  Pregunta
+                </ion-item-divider>
+                <ion-item-divider>
+                  <!--<ion-text (ionChange)="GetTiposRespuesta(datpre.PRORON_TIPO_RESPUESTA)"> {{datpre.PREGUNTAS_PREGUNTA}} </ion-text>-->
+                  <ion-input>{{datpre.PREGUNTAS_PREGUNTA}}</ion-input>
+                </ion-item-divider>
+                <ion-item-divider color="dark">
+                  Respuesta
+                </ion-item-divider>
+                <ion-item-divider>
+                  <ion-select  #T placeholder="Por favor Seleccione el Tipo"   (click)="GetTiposRespuesta(datpre.PRORON_TIPO_RESPUESTA)" (ionChange)="GetRespuestaCorrecta(T.value)"  formControlName="stLTipoResp" [(ngModel)]="stLTipoResp"  text-wrap> <ion-select-option  *ngFor="let item of dataAuxTipo;" value="{{item.DETARES_ID}}">{{item.DETARES_DESCRIPCION}}</ion-select-option> </ion-select>
+                </ion-item-divider>
+
+              <ion-item-divider color="dark" *ngIf="datpre.PUNPRE_OBLIGA_IMAGEN === '1' || stLNovedad==='0' ">
+                  Evidencia
+                </ion-item-divider>
+                <ion-item-divider *ngIf="datpre.PUNPRE_OBLIGA_IMAGEN === '1' || stLNovedad==='0' ">
+                  <img  [src]="stbase64ImageAux"  />
+                </ion-item-divider>
+                <ion-button icon-center size="small"  expand="full" color="secondary" ion-button block (click)="SrCapturarFoto()" *ngIf="datpre.PUNPRE_OBLIGA_IMAGEN === '1' || stLNovedad==='0' "  tappable >
+
+                  <ion-icon class="imgcolor" name="ios-reverse-camera"></ion-icon>{{ 'app.pages.General.TomarFoto' | translate }}
+                </ion-button>
+              </ion-card-content>
+            </ion-card>
+           </div>
+           <div *ngIf="TabPosition === '1' && stLNovedad==='0' ">
+             <ion-card>
+               <ion-card-content>
+
+                 <ion-item-divider color="dark">
+                     Detalle de la Novedad
+                 </ion-item-divider>
+                 <ion-item>
+                   <ion-label position="floating"></ion-label>
+                   <ion-textarea rows="12" cols="20" formControlName="datText" [(ngModel)]="datText"></ion-textarea>
+                 </ion-item>
+                 <ion-button icon-center size="small"  expand="full" color="secondary" ion-button block (click)="SrStartListening()" tappable>
+                   <ion-icon class="imgcolor" name="mic"  ></ion-icon>{{ 'app.pages.General.ActrMic' | translate }}
+                 </ion-button>
+                 <ion-item-divider color="dark">
+                     Notificar a
+                 </ion-item-divider>
+                 <!--
+                 <ion-item>
+                   <ion-label>Proveedor</ion-label>
+                   <ion-toggle slot="end" name="Proveedor" formControlName="stLProveedor" [(ngModel)]="stLProveedor" [disabled]="Proveedor" [checked]="chKProveedor"></ion-toggle>
+                 </ion-item>
+                 -->
+                 <ion-item>
+                   <ion-label>Grupo de Correo</ion-label>
+                   <ion-toggle slot="end" name="GrpCorreo" color="warning" formControlName="stLCorreo" [(ngModel)]="stLCorreo" disabled="true" checked="true"></ion-toggle>
+                 </ion-item>
+               </ion-card-content>
+
+
+           </ion-card>
+
+           </div>
+           <ion-button icon-left expand="full" shape="round" color="secondary" class="ion-margin-top" (click)="SrIngresarRegistro(datpre.PRORON_IDREG, datpre.PUNPRE_OBLIGA_IMAGEN)" [disabled]="!onPreguntaRondForm.valid" tappable>
+             Siguiente
+             <ion-icon name="arrow-round-forward"></ion-icon>
+           </ion-button>
+        </form>
+      </ion-grid>
+    </ion-slide>
+    <ion-slide *ngIf="stLEntra === '1'">
+      <ion-card>
+      <img src="/assets/img/avatar.png" />
+      <ion-card-header>
+        <ion-card-subtitle>Punto</ion-card-subtitle>
+        <ion-card-title>Finalizado</ion-card-title>
+      </ion-card-header>
+      <ion-button expand="full" shape="round" color="secondary" class="ion-margin-top" (click)="closeModal()">
+         Volver
+       </ion-button>
+    </ion-card>
+
+
+
+
+
+
+
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>

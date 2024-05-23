@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+        {{ 'app.pages.Directorio.title.header' | translate }}
+    </ion-title>
+    <!--
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" (click)="favorite(property)">
+        <ion-icon name="heart"></ion-icon>
+      </ion-button>
+      <ion-button size="small" shape="round" (click)="share()">
+          <ion-icon name="share"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    -->
+  </ion-toolbar>
+<!--
+  <ion-toolbar color="dark" class="ion-text-center">
+
+      <ion-searchbar placeholder="Buscar Empleado" [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
+
+
+
+    </ion-toolbar>
+  -->
+</ion-header>
+
+<ion-content>
+  <div class="ion-no-margin" >
+    <!-- # -->
+    <ion-item  class="bg-white" *ngFor="let dat of dataAux"  (click)="Srllamar(dat.CODIR_TELEFONO)">
+      <ion-thumbnail slot="start">
+        <img [src]="stLRutaImg">
+
+      </ion-thumbnail>
+
+      <ion-label>
+        <h2>
+            <ion-text color="dark"><strong>{{dat.CODIR_NOMBRE}}</strong></ion-text>
+        </h2>
+        <p class="text-12x">
+          <ion-text color="primary">{{dat.CARGCON_DESCRIPCION}}</ion-text>
+        </p>
+        <!--
+        <ion-badge slot="end" color="danger">
+          <ion-text color="light">En turno</ion-text>
+        </ion-badge>
+        -->
+
+
+      </ion-label>
+    </ion-item>
+    <!-- # -->
+  </div>
+</ion-content>

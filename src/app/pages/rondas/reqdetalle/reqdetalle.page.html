@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <!--<ion-back-button></ion-back-button>-->
+      <ion-button size="small" shape="round" (click)="closeModal()" color="tertiary">
+        <ion-icon slot="start" name="arrow-round-back" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+        Detalle del Ticket
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+<ion-content padding class="buttons-components-page">
+  <div class="ion-no-margin" >
+    <ion-card>
+      <ion-item-divider color="primary">ATM: {{stLATM}} - {{stLNombreATM}}</ion-item-divider>
+      <ion-card-content>
+        <div class="ion-no-margin" >
+          <ion-list>
+            <ion-item>
+              <ion-label>
+                <h2 no-margin class="fw500 no-margin">
+                  <ion-text color="dark">Tipo</ion-text>
+                </h2>
+
+                <p class="lpuesto">
+                  <ion-text >{{stLTipo}}</ion-text>
+                </p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+          <ion-list>
+            <ion-item>
+              <ion-label>
+                <h2 no-margin class="fw500 no-margin">
+                  <ion-text color="dark">Categoría</ion-text>
+                </h2>
+
+                <p class="lpuesto">
+                  <ion-text >{{stLCategoria}}</ion-text>
+                </p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+
+          <ion-list>
+            <ion-item>
+              <ion-label>
+                <h2 no-margin class="fw500 no-margin">
+                  <ion-text color="dark">SubCategoría</ion-text>
+                </h2>
+
+                <p class="lpuesto">
+                  <ion-text >{{stLSubCategoria}}</ion-text>
+                </p>
+              </ion-label>
+            </ion-item>
+        </ion-list>
+
+        <ion-card>
+
+            <ion-card-content>
+              <ion-label position="floating" color="dark">Foto</ion-label>
+              <img  [src]="stLFoto" *ngIf="stLFoto" />
+
+            </ion-card-content>
+
+            <ion-item color="dark">
+
+
+            </ion-item>
+          </ion-card>
+
+          <ion-card>
+            <ion-card-content>
+              <ion-item>
+                <ion-label position="floating"></ion-label>
+                <ion-textarea rows="7" cols="20" >{{stLDescripcion}}</ion-textarea>
+
+              </ion-item>
+
+            </ion-card-content>
+
+            <ion-item color="dark">
+
+
+
+            </ion-item>
+          </ion-card>
+    </div>
+  </ion-card-content>
+</ion-card>
+
+
+
+
+
+
+</div>
+
+
+</ion-content>

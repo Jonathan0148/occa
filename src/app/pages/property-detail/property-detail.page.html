@@ -1,0 +1,147 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" (click)="favorite(property)">
+        <ion-icon name="heart"></ion-icon>
+      </ion-button>
+      <ion-button size="small" shape="round" (click)="share()">
+          <ion-icon name="share"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <span class="card-img-status fw500 text-white" [ngClass]="{'closed': property.label === 'rent', 'open': property.label === 'sale'}">
+    {{ property.label }}
+  </span>
+
+  <ion-slides pager="true" class="ion-margin-bottom">
+    <ion-slide *ngFor="let image of property.images" (click)="presentImage(image)">
+      <img [src]="image">
+      <div class="shadow"></div>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-card class="bg-white">
+    <ion-card-content>
+      <h1 class="ion-text-center fw700">
+          <ion-text color="dark">{{property.title}}</ion-text>
+     	</h1>
+      <h2 class="ion-text-center fw700">
+        <ion-text color="primary">{{property.price}} <sup *ngIf="property.period">/{{property.period}}</sup></ion-text>
+      </h2>
+
+      <div class="ion-text-center ion-margin-top">
+        <ion-chip color="dark">
+          <ion-icon name="pricetag" color="dark"></ion-icon>
+          <ion-label>{{property.tags}}</ion-label>
+        </ion-chip>
+
+        <ion-chip color="primary" outline="true">
+          <ion-icon name="bed"></ion-icon>
+          <ion-label>{{ property.bedrooms }} bedrooms</ion-label>
+        </ion-chip>
+
+        <ion-chip color="primary" outline="true">
+          <ion-icon name="water"></ion-icon>
+          <ion-label>{{ property.bathrooms }} bathrooms</ion-label>
+        </ion-chip>
+        
+        <ion-chip color="primary" outline="true">
+          <ion-icon name="home"></ion-icon>
+          <ion-label>{{ property.square }}<sup>m2</sup></ion-label>
+        </ion-chip>
+			</div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="bg-white">
+    <ion-item class="ion-no-padding" lines="none" tappable routerLink="/broker-detail/{{property.broker.id}}">
+      <ion-thumbnail class="ion-margin" slot="start">
+          <img [src]="property.broker.picture">
+        </ion-thumbnail>
+      <ion-label>
+        <h2 class="fw700 text08">
+          <ion-text color="dark">{{property.broker.name}}</ion-text>
+        </h2>
+        <p>
+          <ion-text color="primary">{{ property.broker.title }}</ion-text>
+        </p>
+      </ion-label>
+      <ion-badge color="success">
+        <ion-text color="light">Get in Touch</ion-text>
+      </ion-badge>
+    </ion-item>
+  </ion-card>
+
+	<ion-grid class="ion-no-padding">
+      <ion-row class="ion-no-padding">
+        <ion-col>
+          <ion-segment color="primary" [(ngModel)]="propertyopts" class="ion-padding-horizontal">
+            <ion-segment-button value="description">
+              Description
+            </ion-segment-button>
+            <ion-segment-button value="location">
+              Location
+            </ion-segment-button>
+          </ion-segment>
+  
+          <div [ngSwitch]="propertyopts" class="ion-padding-horizontal">
+            <div *ngSwitchCase="'description'">
+              <ion-card class="ion-no-margin bg-white">
+                <ion-card-content>
+                  <p>
+                    <ion-text color="primary">{{property.description}}</ion-text>
+                  </p>
+                </ion-card-content>
+              </ion-card>
+
+              <br><br><br><br>
+  
+            </div>
+
+            <div *ngSwitchCase="'location'">
+
+              <ion-card class="ion-no-margin bg-white">
+                <agm-map [latitude]="property.lat" [longitude]="property.long" [zoom]="12">
+                  <agm-marker [latitude]="property.lat" [longitude]="property.long">
+                  </agm-marker>
+                </agm-map>
+
+                <ion-card-content >
+                  <h2 class="ion-text-center">
+                    <ion-text color="primary">{{property.address}} • {{property.city}}, {{property.state}} - {{property.zip}}</ion-text>
+                  </h2>
+                  
+                  <hr class="ion-margin-bottom bg-tertiary">
+      
+                  <h2 class="fw700">
+                    <ion-text color="dark">Visit Hour</ion-text>
+                  </h2>
+                  <p class="ion-margin-bottom">
+                    <ion-text color="primary">Open 11AM • Closes 11PM</ion-text>
+                  </p>
+
+                </ion-card-content>
+              </ion-card>
+
+              <br><br><br><br>
+
+            </div>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  <!-- <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button color="dark" (click)="openCart()">
+      <ion-icon name="cart"></ion-icon>
+    </ion-fab-button>
+  </ion-fab> -->
+
+</ion-content>

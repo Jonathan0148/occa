@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <!--<ion-back-button></ion-back-button>-->
+      <ion-button size="small" shape="round" (click)="closeModal()" color="tertiary">
+        <ion-icon slot="start" name="arrow-round-back" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+        {{ 'app.pages.ResumenMinuta.title.header' | translate }}
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-item-divider color="dark">
+        Características
+      </ion-item-divider>
+      <ion-item>
+         <ion-label>
+           <ion-label class="my-label" color="dark">Tipo</ion-label>
+           <h3 class="let">{{stLTipo}}</h3>
+           <ion-label class="my-label" color="dark">Categoría</ion-label>
+           <h3 class="let">{{stLCategoria}}</h3>
+           <ion-label class="my-label" color="dark">SubCategoría</ion-label>
+           <h3 class="let">{{stLSubCategoria}}</h3>
+           <ion-label class="my-label" color="dark">Novedad</ion-label>
+           <h3 class="let">{{stLNovedad}}</h3>
+
+         </ion-label>
+       </ion-item>
+       <ion-item-divider color="dark">
+         Detalle
+       </ion-item-divider>
+       <ion-item>
+          <p>{{stLNota}}</p>
+        </ion-item>
+        <ion-item-divider color="dark">
+          Evidencia
+        </ion-item-divider>
+        <ion-item>
+           <img  [src]="stbase64ImageAux"  />
+        </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

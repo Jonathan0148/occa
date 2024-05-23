@@ -1,0 +1,125 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="tertiary"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>
+        <ion-text color="light">
+          {{ 'app.name' | translate }} <ion-text color="tertiary" class="fw7000"> {{ 'app.version' | translate }}</ion-text>
+        </ion-text>
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" color="medium" (click)="notifications()">
+        <ion-icon name="notifications"></ion-icon>
+        <ion-badge [color]="stLColorNotifica" slot="end">{{inLContadorNotifica}}</ion-badge>
+      </ion-button>
+      <ion-button size="small" shape="round" color="medium" tappable routerLink="/home-location" routerDirection="forward">
+        <ion-icon slot="icon-only" name="cog"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar color="dark" class="ion-text-center">
+    <p>
+        <ion-note color="light" style="font-weight: bold; font-size: 17px;">{{stLNomCliente}}</ion-note><br />
+        <ion-note color="light">{{stLNomUbicacion}}</ion-note>
+    </p>
+
+      <!--
+      <ion-searchbar [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
+      <ion-buttons slot="end">
+        <ion-button size="small" shape="round" color="medium" (click)="searchFilter()">
+          <ion-icon name="options"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      -->
+
+    </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+    <ion-grid class="ion-no-padding" fixed>
+        <ion-row class="ion-no-padding">
+          <ion-col class="ion-no-padding">
+            <ion-button class="ion-no-margin" expand="full" size="large" [color]="
+            "  >
+              {{stLPuesto}}
+            </ion-button>
+          </ion-col>
+          <!--
+          <ion-col class="ion-no-padding">
+            <ion-button class="ion-no-margin" expand="full" size="large" color="primary" (click)="openPropertyListPage('rent')">
+              For Rent
+            </ion-button>
+          </ion-col>
+          -->
+        </ion-row>
+
+        <div class="ion-no-margin" [@staggerIn]="properties">
+          <!-- # -->
+
+          <ion-item lines="none" class="bg-white" tappable routerLink={{property.link}} *ngFor="let property of datListAux" >
+
+            <ion-thumbnail slot="start" >
+              <img [src]="property.thumbnail">
+            </ion-thumbnail >
+            <ion-label>
+              <h2>
+                  <ion-text color="dark"><strong>{{ property.title }}</strong></ion-text>
+              </h2>
+              <p class="text-12x">
+                <ion-text color="primary">{{property.city}}</ion-text>
+              </p>
+
+              <ion-badge slot="end" [color]="stLColorRonda" *ngIf="property.label === 'Pendiente'">
+                <ion-text color="light">{{ stLEstadoRonda }}</ion-text>
+              </ion-badge>
+
+
+
+            </ion-label>
+
+          </ion-item>
+
+          <!-- # -->
+        </div>
+
+      </ion-grid>
+      <!--
+      <ion-button class="ion-margin" expand="full" color="secondary" (click)="openPropertyListPage()">
+        {{ 'app.button.moreresults' | translate }}
+      </ion-button>
+      -->
+</ion-content>
+
+
+<ion-footer class="animated fadeIn">
+    <ion-toolbar color="primary">
+      <ion-grid class="ion-no-padding">
+          <ion-row>
+            <ion-col size="4" class="ion-no-padding">
+              <ion-button size="small" [ngStyle]="{'background-color': ClrFondo}" expand="full" fill="clear" color="medium" (click)="onLinterna()">
+                <ion-icon slot="start" ios="ios-sunny" md="md-sunny"></ion-icon>
+                {{ 'app.button.linterna' | translate }}
+              </ion-button>
+            </ion-col>
+            <ion-col size="4" class="ion-no-padding"   >
+              <ion-button  size="small" [ngStyle]="{'background-color': ClrFondoPan}" expand="full" fill="clear" color="light" (click)="onPanico()">
+                <ion-icon slot="start" ios="ios-alert" md="md-alert" ></ion-icon>
+                {{ 'app.button.panico' | translate }}
+              </ion-button>
+            </ion-col>
+            <ion-col size="4" size="small" expand="full" fill="clear" color="light" (click)="onLlamar()">
+              <ion-button size="small" expand="full" fill="clear" color="medium">
+                <ion-icon slot="start" ios="ios-call" md="md-call"></ion-icon>
+                {{ 'app.button.llamar' | translate }}
+              </ion-button>
+            </ion-col>
+          </ion-row>
+      </ion-grid>
+    </ion-toolbar>
+  </ion-footer>

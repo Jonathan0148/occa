@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+        {{ 'app.pages.Capacitacion.title.header' | translate }}
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+<ion-content>
+  <div class="ion-no-margin" >
+    <!-- # -->
+    <ion-item  class="bg-white" *ngFor="let dat of dataAux" (click)="PresentDetalle(dat.CAP_ID_REG)" >
+      <ion-thumbnail slot="start">
+        <img [src]="stLRutaImg">
+
+      </ion-thumbnail>
+
+      <ion-label>
+        <h2>
+            <ion-text color="dark"><strong>{{dat.CAP_DESCRIPCION}}</strong></ion-text>
+        </h2>
+        <p class="text-12x">
+          <ion-text color="primary" text-wrap text-justify>{{dat.CAP_COMENTARIO}}</ion-text>
+        </p>
+        <!--
+        <ion-badge slot="end" color="danger">
+          <ion-text color="light">En turno</ion-text>
+        </ion-badge>
+        -->
+
+
+      </ion-label>
+    </ion-item>
+    <!-- # -->
+  </div>
+</ion-content>

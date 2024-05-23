@@ -1,0 +1,18 @@
+<ion-list class="ion-no-margin ion-no-padding">
+    <ion-list-header color="dark">
+      <ion-label class="fw700">Notificaciones</ion-label>
+    </ion-list-header>
+    <!--<ion-item tappable *ngFor="let dat of dataAux" routerLink="/message/{{message.id}}" (click)="close()">-->
+    <ion-item tappable *ngFor="let dat of dataAux" (click)="close()">
+      <ion-label>
+        <h2>
+
+          <ion-text color="primary" text-wrap>{{dat.NOTI_DESCRIPCION}}</ion-text>
+        </h2>
+        <p>
+          <ion-text color="dark">{{dat.FECHA}}</ion-text>
+        </p>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>

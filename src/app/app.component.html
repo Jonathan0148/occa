@@ -1,0 +1,69 @@
+<ion-app>
+  <ion-split-pane contentId="menu-content">
+    <ion-menu contentId="menu-content">
+      <ion-header>
+        <ion-toolbar color="dark" class="user-profile">
+
+          <ion-item lines="none">
+
+            <ion-avatar slot="start" class="user-avatar">
+              <img src="assets/img/avatar.jpeg">
+            </ion-avatar>
+            <ion-label>
+              <ion-text color="light">
+                <h2><strong>{{m_stNombres}}</strong></h2>
+              </ion-text>
+              <ion-text color="medium">
+                <h3>
+                  {{m_stCargo}}
+                </h3>
+              </ion-text>
+              <!--
+              <ion-chip color="light" outline="true">
+                <ion-icon name="home"></ion-icon>
+                <ion-label>Renter</ion-label>
+              </ion-chip>
+              -->
+            </ion-label>
+          </ion-item>
+
+        </ion-toolbar>
+
+        <ion-fab vertical="center" horizontal="end">
+            <ion-fab-button size="small" color="medium">
+              <ion-icon name="apps"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-list side="bottom">
+              <!--
+              <ion-fab-button size="small" color="tertiary" routerLink="/edit-profile" routerDirection="forward" (click)="closeMenu()">
+                <ion-icon name="contact"></ion-icon>
+              </ion-fab-button>
+              -->
+              <ion-fab-button size="small" color="tertiary" routerLink="/login" routerDirection="forward" (click)="closeMenu()">
+                <ion-icon name="log-out"></ion-icon>
+              </ion-fab-button>
+            </ion-fab-list>
+          </ion-fab>
+
+      </ion-header>
+
+      <ion-content class="bg-profile">
+        <ion-list>
+          <ion-list-header color="dark">
+            <ion-label>Menu</ion-label>
+          </ion-list-header>
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <ion-item tappable [routerLink]="p.url" [routerDirection]="p.direct" color="primary">
+              <ion-icon slot="start" [name]="p.icon" color="light"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="menu-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

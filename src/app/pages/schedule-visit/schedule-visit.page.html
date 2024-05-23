@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+        {{ 'app.pages.schedule.title.header' | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+
+<ion-content class="ion-padding">
+  <ion-card class="bg-white ion-no-margin">
+    <ion-card-header color="dark" class="ion-no-padding">
+      <ion-item lines="none">
+        <ion-thumbnail slot="start">
+          <img [src]="broker.picture">
+        </ion-thumbnail>
+        <ion-label>
+          <h2 class="fw700 text08">
+            <ion-text color="light">{{broker.name}}</ion-text>
+          </h2>
+          <p>
+            <ion-text color="medium">{{ broker.title }}</ion-text>
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-card-header>
+
+    <ion-card-content class="ion-no-padding">
+      <ion-item>
+        <ion-label class="fw500">
+          <ion-text color="dark">Visit Date</ion-text>
+        </ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" placeholder="Select Date"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label class="fw500">
+          <ion-text color="dark">Best Hour</ion-text>
+        </ion-label>
+        <ion-datetime displayFormat="h:mm A" minuteValues="0,15,30,45" placeholder="Select Hour"></ion-datetime>
+      </ion-item>
+    </ion-card-content>
+    <ion-card-content class="ion-no-padding">
+      <ion-item color="light">
+        <ion-label position="floating">
+          <ion-text color="dark">Let your considerations</ion-text>
+        </ion-label>
+        <ion-textarea color="primary"></ion-textarea>
+      </ion-item>
+    </ion-card-content>
+
+    <ion-button size="large" expand="full" color="primary" tappable (click)="sendSchedule()" class="ion-no-margin">
+      {{ 'app.pages.schedule.title.text' | translate }}
+      <ion-icon color="light" name="clock" slot="start"></ion-icon>
+    </ion-button>
+  </ion-card>
+</ion-content>

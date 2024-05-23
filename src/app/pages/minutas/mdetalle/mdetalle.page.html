@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <!--<ion-back-button></ion-back-button>-->
+      <ion-button size="small" shape="round" (click)="closeModal()" color="tertiary">
+        <ion-icon slot="start" name="arrow-round-back" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+        {{ 'app.pages.NewMinutas.title.header' | translate }}
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-grid class="ion-no-padding" fixed>
+     <ion-row class="ion-no-padding">
+       <ion-col class="ion-no-padding">
+         <ion-button class="ion-no-margin" expand="full" size="medium" [color]="stLColorTab1"  (click)="SrOpenTab('0')">
+           Registro
+         </ion-button>
+       </ion-col>
+       <ion-col class="ion-no-padding">
+         <ion-button class="ion-no-margin" expand="full" size="medium" [color]="stLColorTab2" (click)="SrOpenTab('1')">
+           Detalle
+         </ion-button>
+       </ion-col>
+       <!--
+       <ion-col class="ion-no-padding" >
+         <ion-button class="ion-no-margin" expand="full" size="medium" [color]="stLColorTab3" (click)="SrOpenTab('2')" [disabled]="TabFirma">
+           Firma
+         </ion-button>
+       </ion-col>
+       -->
+     </ion-row>
+     <form [formGroup]="onDetalleForm">
+       <div *ngIf="TabPosition === '0'">
+         <ion-card>
+           <ion-card-content>
+             <ion-item-divider color="dark">
+               ATM: {{stRATM}} - {{stRNombre}}
+             </ion-item-divider>
+             <ion-item-divider>
+               <ion-select  #T placeholder="Por favor Seleccione el Tipo" (ionChange)="GetCategoria(T.value)"  formControlName="stLTipo" [(ngModel)]="stLTipo"  text-wrap> <ion-select-option  *ngFor="let item of dataAux;" value="{{item.TIPO_IDREG}}">{{item.TINO_DESCRIPCION}}</ion-select-option> </ion-select>
+             </ion-item-divider>
+             <ion-item-divider>
+               <ion-select  #C placeholder="Por favor Seleccione la Categoría" (ionChange)="GetSubCategoria(C.value)"   formControlName="stLCategoria" [(ngModel)]="stLCategoria"  text-wrap> <ion-select-option  *ngFor="let item of dataCat;" value="{{item.CAT_IDREG}}">{{item.CAT_DESCRIPCION}}</ion-select-option> </ion-select>
+             </ion-item-divider>
+             <ion-item-divider>
+               <ion-select  #S placeholder="Por favor Seleccione la SubCategoría"  (ionChange)="GetNovedad(S.value)" formControlName="stLSubCategoria" [(ngModel)]="stLSubCategoria"  text-wrap> <ion-select-option  *ngFor="let item of dataSubCat;" value="{{item.SUB_IDREG}}">{{item.SUB_DESCRIPCION}}</ion-select-option> </ion-select>
+             </ion-item-divider>
+             <!--
+             <ion-item-divider>
+               <ion-select  #N placeholder="Por favor Seleccione la Novedad"  formControlName="stLNovedad" [(ngModel)]="stLNovedad"  text-wrap> <ion-select-option  *ngFor="let item of dataNov;" value="{{item.NOV_IDREG}}">{{item.NOV_DESCRIPCION}}</ion-select-option> </ion-select>
+             </ion-item-divider>
+             -->
+
+           <ion-item-divider color="dark">
+               Evidencia
+             </ion-item-divider>
+             <ion-item-divider>
+               <img  [src]="stbase64ImageAux"  />
+             </ion-item-divider>
+           </ion-card-content>
+
+          <ion-button icon-center size="small"  expand="full" color="secondary" ion-button block (click)="SrCapturarFoto()"  tappable>
+
+            <ion-icon class="imgcolor" name="ios-reverse-camera"></ion-icon>{{ 'app.pages.General.TomarFoto' | translate }}
+          </ion-button>
+         </ion-card>
+        </div>
+        <div *ngIf="TabPosition === '1'">
+          <ion-card>
+            <ion-card-content>
+
+              <ion-item-divider color="dark">
+                  Detalle de la Novedad
+              </ion-item-divider>
+              <ion-item>
+                <ion-label position="floating"></ion-label>
+                <ion-textarea rows="12" cols="20" formControlName="datText" [(ngModel)]="datText"></ion-textarea>
+              </ion-item>
+              <ion-button icon-center size="small"  expand="full" color="secondary" ion-button block (click)="SrStartListening()" tappable>
+                <ion-icon class="imgcolor" name="mic"  ></ion-icon>{{ 'app.pages.General.ActrMic' | translate }}
+              </ion-button>
+
+
+            </ion-card-content>
+
+
+        </ion-card>
+        </div>
+        <!--
+        <div *ngIf="TabPosition === '2'">
+          <ion-card>
+            <ion-item-divider color="dark">
+              Espacio para Firma
+            </ion-item-divider>
+            <ion-card-content>
+              <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()" formControlName="stbase64FirmaAux" [(ngModel)]="stbase64FirmaAux"></signature-pad>
+            </ion-card-content>
+            <ion-button icon-center size="small"  expand="full" color="secondary" ion-button block (click)="SrClear()" tappable>
+              <ion-icon class="imgcolor" name="create"  ></ion-icon>{{ 'app.pages.General.Limpiar' | translate }}
+            </ion-button>
+            <ion-item-divider color="dark">
+              Firma Capturada
+            </ion-item-divider>
+            <ion-item-divider>
+              <img  [src]="stbase64FirmaAux"  />
+            </ion-item-divider>
+          </ion-card>
+        </div>
+        -->
+        <ion-button icon-center   expand="full" color="secondary" ion-button block (click)="SrProcesaIngreso()" [disabled]="!onDetalleForm.valid" tappable>
+          <ion-icon class="imgcolor" name="checkmark-circle-outline" style="zoom:2.0;" ></ion-icon>{{ 'app.pages.General.Guardar' | translate }}
+        </ion-button>
+     </form>
+    </ion-grid>
+
+</ion-content>

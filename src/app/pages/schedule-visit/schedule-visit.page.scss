@@ -1,0 +1,15 @@
+:host {
+    ion-content {
+        --background: var(--ion-color-light);
+    }
+
+    ion-item {
+        --border-color: var(--ion-color-medium);
+        --border-style: dotted;
+    }
+
+    ion-datetime {
+        --placeholder-color: var(--ion-color-primary);
+    }
+}
+  

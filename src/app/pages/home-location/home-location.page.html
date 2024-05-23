@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+        {{ 'app.pages.CambiarPWD.title.header' | translate }}
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-card  class="Prin">
+    <ion-card-content>
+      <ion-item-divider color="dark">
+        Cambiar Contraseña
+      </ion-item-divider>
+      <form [formGroup]="onPwdForm" class="list-form">
+        <ion-item no-padding class="animated fadeInUp">
+          <ion-label position="floating" color="dark">
+            <ion-icon name="lock" item-start></ion-icon>
+            Contraseña Actual
+          </ion-label>
+          <ion-input class="letrain" type="password" formControlName="passwordold" [(ngModel)]="passwordold"></ion-input>
+        </ion-item>
+        <p ion-text class="text08" *ngIf="onPwdForm.get('passwordold').touched && onPwdForm.get('passwordold').hasError('required')">
+          <ion-text color="danger">
+            Campo Requerido(*)
+          </ion-text>
+        </p>
+        <ion-item no-padding class="animated fadeInUp">
+          <ion-label position="floating" color="dark">
+            <ion-icon name="lock" item-start></ion-icon>
+              Nueva Contraseña
+          </ion-label>
+          <ion-input class="letrain" type="password" formControlName="password" [(ngModel)]="password"></ion-input>
+        </ion-item>
+        <p ion-text class="text08" *ngIf="onPwdForm.get('password').touched && onPwdForm.get('password').hasError('required')">
+          <ion-text color="danger">
+            Campo Requerido(*)
+          </ion-text>
+        </p>
+       <ion-item no-padding class="animated fadeInUp">
+           <ion-label position="floating" color="dark">
+             <ion-icon name="lock" item-start></ion-icon>
+                Confirmar Contraseña
+            </ion-label>
+            <ion-input class="letrain" type="password" formControlName="passwordConf" [(ngModel)]="passwordConf"></ion-input>
+          </ion-item>
+          <p ion-text color="warning" class="text08" *ngIf="onPwdForm.get('passwordConf').touched && onPwdForm.get('passwordConf').hasError('required')">
+            <ion-text color="danger">
+              Campo Requerido(*)
+            </ion-text>
+    </form>
+
+  </ion-card-content>
+  <ion-card-header >
+    <ion-card-subtitle><ion-button icon-left size="medium" shape="round" expand="full" color="dark" (click)="goChangePwd()" [disabled]="!onPwdForm.valid" tappable>
+      <ion-icon name="log-in"></ion-icon>
+        Cambiar Contraseña
+    </ion-button></ion-card-subtitle>
+
+  </ion-card-header>
+</ion-card>
+</ion-content>

@@ -1,0 +1,40 @@
+:host {
+    ion-content {
+      --background: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary))
+    }
+
+    ion-card {
+        border-radius: 0;
+        margin-bottom: -3px;
+        -webkit-font-smoothing: subpixel-antialiased;
+        // font-smoothing: subpixel-antialiased;
+    }
+}
+
+
+.shadow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: inset 0 0 28rem 0 rgba(var(--ion-color-dark-rgb), .95);
+}
+
+.card-title {
+  position: absolute;
+  top: 36%;
+  width: 100%;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 1px 2px 2px rgba(var(--ion-color-dark-rgb), 1);
+}
+
+.card-subtitle {
+  font-weight: 500;
+  position: absolute;
+  top: 52%;
+  width: 100%;
+  color: var(--ion-color-tertiary);
+  text-shadow: 0 0 6px rgba(var(--ion-color-dark-rgb), 1);
+}

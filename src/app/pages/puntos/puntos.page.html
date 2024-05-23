@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+        {{ 'app.pages.Puntos.title.header' | translate }}
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+<ion-content>
+  <ion-grid class="ion-no-padding" fixed>
+     <ion-row class="ion-no-padding">
+       <ion-col class="ion-no-padding">
+         <ion-button class="ion-no-margin" expand="full" size="medium" [color]="stLColorTab1"  (click)="SrOpenTab('0')">
+           Sin Asignar
+         </ion-button>
+       </ion-col>
+       <ion-col class="ion-no-padding">
+         <ion-button class="ion-no-margin" expand="full" size="medium" [color]="stLColorTab2" (click)="SrOpenTab('1')">
+           Asignados
+         </ion-button>
+       </ion-col>
+       <ion-col class="ion-no-padding" >
+         <ion-button class="ion-no-margin" expand="full" size="medium" [color]="stLColorTab3" (click)="SrOpenTab('2')">
+           Instalados
+         </ion-button>
+       </ion-col>
+     </ion-row>
+     <div *ngIf="TabPosition === '0'">
+       <div class="ion-no-margin" >
+         <!-- # -->
+         <ion-item  class="bg-white" *ngFor="let dat of dataAux"  (click)="PresentNFC(dat.PUNTO_ID,'ASIG', dat.PUNTO_NOMBRE)">
+           <ion-thumbnail slot="start">
+             <img [src]="stLRutaImgSA">
+
+           </ion-thumbnail>
+
+           <ion-label>
+             <h2>
+                 <ion-text color="dark"><strong>ATM - {{dat.PUNTO_ATM}}</strong></ion-text>
+             </h2>
+
+             <p class="text-12x">
+               <ion-text color="primary">{{dat.PUNTO_NOMBRE}}</ion-text>
+             </p>
+
+
+             <ion-badge slot="end" color="warning">
+               <ion-text color="dark">Asignar TAG</ion-text>
+             </ion-badge>
+
+
+
+           </ion-label>
+         </ion-item>
+         <!-- # -->
+       </div>
+     </div>
+     <div *ngIf="TabPosition === '1'">
+       <div class="ion-no-margin" >
+         <!-- # -->
+         <ion-item  class="bg-white" *ngFor="let dat of dataAsignados"  (click)="PresentNFC(dat.PUNTO_ID,'INSTAL', dat.PUNTO_NOMBRE)">
+           <ion-thumbnail slot="start">
+             <img [src]="stLRutaImgASI">
+
+           </ion-thumbnail>
+
+           <ion-label>
+             <h2>
+                 <ion-text color="dark"><strong>ATM - {{dat.PUNTO_ATM}}</strong></ion-text>
+             </h2>
+
+             <p class="text-12x">
+               <ion-text color="primary">{{dat.PUNTO_NOMBRE}}</ion-text>
+             </p>
+             -->
+
+             <ion-badge slot="end" color="warning">
+               <ion-text color="dark">Instalar TAG</ion-text>
+             </ion-badge>
+
+
+
+           </ion-label>
+         </ion-item>
+         <!-- # -->
+       </div>
+     </div>
+     <div *ngIf="TabPosition === '2'">
+       <div class="ion-no-margin" >
+         <!-- # -->
+         <ion-item  class="bg-white" *ngFor="let dat of dataInstalados">
+           <ion-thumbnail slot="start">
+             <img [src]="stLRutaImgINSTALL">
+
+           </ion-thumbnail>
+
+           <ion-label>
+             <h2>
+                 <ion-text color="dark"><strong>ATM - {{dat.PUNTO_ATM}}</strong></ion-text>
+             </h2>
+
+             <p class="text-12x">
+               <ion-text color="primary">{{dat.PUNTO_NOMBRE}}</ion-text>
+             </p>
+
+
+             <ion-badge slot="end" color="warning">
+               <ion-text color="dark">Instalar TAG</ion-text>
+             </ion-badge>
+            -->
+
+
+           </ion-label>
+         </ion-item>
+         <!-- # -->
+       </div>
+     </div>
+  </ion-grid>
+</ion-content>

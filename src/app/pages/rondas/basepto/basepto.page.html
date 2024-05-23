@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <!--<ion-back-button></ion-back-button>-->
+      <ion-button size="small" shape="round" (click)="closeModal()" color="tertiary">
+        <ion-icon slot="start" name="arrow-round-back" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+        ATM: {{stRATM}} - {{stRNombre}}
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+<ion-content padding class="buttons-components-page">
+  <div class="ion-no-margin" >
+    <ion-card>
+      <ion-item-divider color="primary">Opciones de Operación</ion-item-divider>
+      <ion-card-content>
+        <div class="ion-no-margin" >
+          <ion-item (click)="presentnoacceso()">
+          <ion-icon color="dark" ios="ios-key" md="md-key" slot="start" style="zoom:1.3;"></ion-icon>
+          <ion-label>
+            <h2 no-margin class="fw500 no-margin">
+              <ion-text color="dark" >Notificar NO Acceso</ion-text>
+            </h2>
+
+          </ion-label>
+
+        </ion-item>
+        <ion-item (click)="PresentDetalle()">
+          <ion-icon color="dark" ios="ios-create" md="md-create" slot="start" style="zoom:1.3;"></ion-icon>
+          <ion-label>
+            <h2 no-margin class="fw500 no-margin">
+              <ion-text color="dark">Ingresar Ticket</ion-text>
+            </h2>
+
+          </ion-label>
+         <!--<ion-note slot="end" color="primary" (click)="presentPregunta(stRPto)">Iniciar</ion-note>-->
+        </ion-item>
+        <ion-item (click)="presentverreq()">
+          <ion-icon color="dark" name="list" slot="start" style="zoom:1.3;"></ion-icon>
+          <ion-label>
+            <h2 no-margin class="fw500 no-margin">
+              <ion-text color="dark" >Ver Tickets</ion-text>
+            </h2>
+
+          </ion-label>
+         <!--<ion-note slot="end" color="primary" (click)="presentCaja()">Abrir</ion-note>-->
+        </ion-item>
+    <!--
+        <ion-item (click)="getRevisaATMSINNOVEDAD()">
+          <ion-icon color="dark" name="checkmark-circle" slot="start"></ion-icon>
+          <ion-label>
+            <h2 no-margin class="fw500 no-margin">
+              <ion-text color="dark" >ATM SIN Novedad</ion-text>
+            </h2>
+
+          </ion-label>
+          -->
+         <!--<ion-note slot="end" color="primary" (click)="presentCaja()">Abrir</ion-note>-->
+        <!--</ion-item>-->
+
+        <ion-item (click)="presentvisitatag()">
+          <ion-icon color="dark" ios="ios-radio" name="ios-radio" slot="start" style="zoom:1.3;"></ion-icon>
+          <ion-label>
+            <h2 no-margin class="fw500 no-margin">
+              <ion-text color="dark" >Tag Precintos</ion-text>
+            </h2>
+
+          </ion-label>
+         <!--<ion-note slot="end" color="primary" (click)="presentCaja()">Abrir</ion-note>-->
+        </ion-item>
+
+
+        <ion-item (click)="presentAlertConfirm()">
+          <ion-icon color="dark" name="log-out" slot="start" style="zoom:1.3;"></ion-icon>
+          <ion-label>
+            <h2 no-margin class="fw500 no-margin">
+              <ion-text color="dark" >Cerrar Visita</ion-text>
+            </h2>
+
+          </ion-label>
+         <!--<ion-note slot="end" color="primary" (click)="presentCaja()">Abrir</ion-note>-->
+        </ion-item>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+
+
+
+
+
+</div>
+
+
+</ion-content>

@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <!--<ion-back-button></ion-back-button>-->
+      <ion-button size="small" shape="round" (click)="closeModal()" color="tertiary">
+        <ion-icon slot="start" name="arrow-round-back" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+        NO Acceso al ATM
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+<ion-content padding class="buttons-components-page">
+  <div class="ion-no-margin" >
+    <ion-card>
+      <ion-item-divider color="primary">ATM: {{stRATM}} - {{stRNombre}}</ion-item-divider>
+      <ion-card-content>
+        <div class="ion-no-margin" >
+          <form [formGroup]="onNoAccesoForm">
+            <div >
+          <ion-list>
+            <ion-item>
+              <ion-label position="floating" color="dark">Motivo</ion-label>
+              <ion-select  #T placeholder="Seleccione el Motivo"  [(ngModel)]="SlMotivo" formControlName="SlMotivo"> <ion-select-option  *ngFor="let item of dataAux;" value="{{item.MOT_NOATE_ID}}">{{item.MOT_NOATE_NOMBRE}}</ion-select-option> </ion-select>
+
+            </ion-item>
+            </ion-list>
+
+                  <ion-item-divider color="dark">
+                      Evidencia
+                    </ion-item-divider>
+                    <ion-item-divider>
+                      <img  [src]="stbase64ImageAux"  />
+                    </ion-item-divider>
+
+                 <ion-button icon-center size="small"  expand="full" color="secondary" ion-button block (click)="FCapturarFoto()"  tappable>
+
+                   <ion-icon class="imgcolor" name="ios-reverse-camera"></ion-icon>TOMAR FOTO
+                 </ion-button>
+
+                 <ion-item-divider color="dark">
+                     Detalle
+                 </ion-item-divider>
+                 <ion-item>
+                   <ion-label position="floating"></ion-label>
+                   <ion-textarea rows="8" cols="20" formControlName="datText" [(ngModel)]="datText"></ion-textarea>
+                 </ion-item>
+                 <ion-button icon-center size="small"  expand="full" color="secondary" ion-button block (click)="startListening()" tappable>
+                   <ion-icon class="imgcolor" name="mic"  ></ion-icon>ACTIVAR MICRÓFONO
+                 </ion-button>
+
+
+
+
+
+
+            </div>
+          </form>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    <ion-button icon-center   expand="full" color="secondary" ion-button block (click)="SrIngresar(onNoAccesoForm)" [disabled]="!onNoAccesoForm.valid" tappable>
+      <ion-icon class="imgcolor" name="checkmark-circle-outline" style="zoom:2.0;" ></ion-icon>Guardar Registro
+    </ion-button>
+
+
+
+
+
+</div>
+
+
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <!--<ion-back-button></ion-back-button>-->
+      <ion-button size="small" shape="round" (click)="closeModal()" color="tertiary">
+        <ion-icon slot="start" name="arrow-round-back" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+        {{ stLTitulo }}
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+        <ion-item-divider color="dark">
+          Escanear TAG
+        </ion-item-divider>
+        <ion-item-divider>
+          <img  [src]="stbase64ImageAux"  />
+        </ion-item-divider>
+      </ion-card-content>
+      <ion-button icon-center size="small"  expand="full" color="secondary" ion-button block (click)="SrProcesarTAG()"  tappable>
+        <ion-icon class="imgcolor" name="wifi"></ion-icon>{{stLTituloAux}}
+      </ion-button>
+  </ion-card>
+</ion-content>

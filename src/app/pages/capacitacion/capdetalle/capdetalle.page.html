@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <!--<ion-back-button></ion-back-button>-->
+      <ion-button size="small" shape="round" (click)="closeModal()" color="tertiary">
+        <ion-icon slot="start" name="arrow-round-back" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+        {{ 'app.pages.CapacitacionDet.title.header' | translate }}
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <ion-slides pager="true" dir="ltr" >
+    <ion-slide *ngFor="let datDet of dataAux" class="bg-cap">
+      <div class="ion-padding">
+        <!--<img [src]="datDet.Imagen" alt="ionProperty icons" class="ion-margin-bottom slide-image animated fadeInDown slow">-->
+        <h3 class="slide-title text-green animated fadeIn" [innerHTML]="datDet.CAPDET_TEMA"></h3>
+        <ion-text text-black>
+          <p [innerHTML]="datDet.CAPDET_TEXTO" class="animated fadeIn" text-wrap text-justify></p>
+        </ion-text>
+
+        <ion-button icon-left expand="full" shape="round" color="secondary" class="ion-margin-top" (click)="onSlideNext()">
+          Siguiente
+          <ion-icon name="arrow-round-forward"></ion-icon>
+        </ion-button>
+      </div>
+
+    </ion-slide>
+    <!--
+    <ion-slide class="bg-profileAux" *ngIf="stLEntra === '1'">
+
+      <div class="w100 ion-padding" >
+
+        <h1 class="slide-title text-white ion-margin-bottom">Capacitación Terminad@</h1>
+
+
+
+
+        <ion-button expand="full" shape="round" color="secondary" class="ion-margin-top" (click)="openLoginPage()">
+          Volver
+        </ion-button>
+
+      </div>
+
+
+
+    </ion-slide>
+
+    -->
+    <ion-slide *ngIf="stLEntra === '1'">
+      <ion-card>
+      <img src="/assets/img/avatar.png" />
+      <ion-card-header>
+        <ion-card-subtitle>Capacitación</ion-card-subtitle>
+        <ion-card-title>Finalizada</ion-card-title>
+      </ion-card-header>
+      <ion-button expand="full" shape="round" color="secondary" class="ion-margin-top" (click)="closeModal()">
+         Volver
+       </ion-button>
+    </ion-card>
+
+
+
+
+
+
+
+    </ion-slide>
+  </ion-slides>
+</ion-content>

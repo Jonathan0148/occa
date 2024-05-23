@@ -1,0 +1,272 @@
+
+{
+  "header": {
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20200528.195141.55884.001.json",
+    "dumpEventTime": "2020-05-28T19:51:41Z",
+    "processId": 55884,
+    "commandLine": [
+      "node",
+      "C:\\Users\\juan.suaterna\\OberonOCCA_V2\\node_modules\\.bin\\\\..\\@angular\\cli\\bin\\ng",
+      "run",
+      "app:ionic-cordova-build",
+      "--platform=android"
+    ],
+    "nodejsVersion": "v11.11.0",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "11.11.0",
+      "v8": "7.0.276.38-node.18",
+      "uv": "1.26.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "67",
+      "nghttp2": "1.34.0",
+      "napi": "4",
+      "llhttp": "1.1.1",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1a",
+      "cldr": "34.0",
+      "icu": "63.1",
+      "tz": "2018e",
+      "unicode": "11.0"
+    },
+    "release": {
+      "name": "node",
+      "headersUrl": "https://nodejs.org/download/release/v11.11.0/node-v11.11.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v11.11.0/node-v11.11.0.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v11.11.0/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.17763",
+    "osVersion": "Windows 10 Pro",
+    "osMachine": "x86_64",
+    "host": "PT22BOG01-1031"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x00007ff6c440bc4e",
+      "symbol": "SSL_SESSION_get0_peer+15022"
+    },
+    {
+      "pc": "0x00007ff6c440ab04",
+      "symbol": "SSL_SESSION_get0_peer+10596"
+    },
+    {
+      "pc": "0x00007ff6c440a336",
+      "symbol": "SSL_SESSION_get0_peer+8598"
+    },
+    {
+      "pc": "0x00007ff6c44f703a",
+      "symbol": "uv_loop_fork+86202"
+    },
+    {
+      "pc": "0x00007ff6c48de49e",
+      "symbol": "v8::internal::FatalProcessOutOfMemory+798"
+    },
+    {
+      "pc": "0x00007ff6c48de3d7",
+      "symbol": "v8::internal::FatalProcessOutOfMemory+599"
+    },
+    {
+      "pc": "0x00007ff6c49891a4",
+      "symbol": "v8::internal::Heap::RootIsImmortalImmovable+14068"
+    },
+    {
+      "pc": "0x00007ff6c497efb2",
+      "symbol": "v8::internal::Heap::CollectGarbage+7234"
+    },
+    {
+      "pc": "0x00007ff6c497d7c8",
+      "symbol": "v8::internal::Heap::CollectGarbage+1112"
+    },
+    {
+      "pc": "0x00007ff6c49870f7",
+      "symbol": "v8::internal::Heap::RootIsImmortalImmovable+5703"
+    },
+    {
+      "pc": "0x00007ff6c4987176",
+      "symbol": "v8::internal::Heap::RootIsImmortalImmovable+5830"
+    },
+    {
+      "pc": "0x00007ff6c4b08481",
+      "symbol": "v8::internal::Factory::NewFillerObject+49"
+    },
+    {
+      "pc": "0x00007ff6c4bbdbb6",
+      "symbol": "v8::internal::StoreBuffer::StoreBufferOverflow+27190"
+    },
+    {
+      "pc": "0x0000009266cd0481",
+      "symbol": ""
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 1499635712,
+    "totalCommittedMemory": 1499635712,
+    "usedMemory": 1416938736,
+    "availableMemory": 28399120,
+    "memoryLimit": 1526909922,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 524288,
+        "committedMemory": 524288,
+        "capacity": 515584,
+        "used": 33520,
+        "available": 482064
+      },
+      "new_space": {
+        "memorySize": 4194304,
+        "committedMemory": 4194304,
+        "capacity": 2062336,
+        "used": 122768,
+        "available": 1939568
+      },
+      "old_space": {
+        "memorySize": 1378029568,
+        "committedMemory": 1378029568,
+        "capacity": 1312841216,
+        "used": 1312332144,
+        "available": 509072
+      },
+      "code_space": {
+        "memorySize": 7340032,
+        "committedMemory": 7340032,
+        "capacity": 6267456,
+        "used": 6267456,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 13119488,
+        "committedMemory": 13119488,
+        "capacity": 3558160,
+        "used": 3558160,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 96428032,
+        "committedMemory": 96428032,
+        "capacity": 120093104,
+        "used": 94624688,
+        "available": 25468416
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 0,
+        "used": 0,
+        "available": 0
+      }
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "=C:": "C:\\Users\\juan.suaterna\\OberonOCCA_V2",
+    "allusersprofile": "C:\\ProgramData",
+    "appdata": "C:\\Users\\juan.suaterna\\AppData\\Roaming",
+    "commonprogramfiles": "C:\\Program Files\\Common Files",
+    "commonprogramfiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "commonprogramw6432": "C:\\Program Files\\Common Files",
+    "computername": "PT22BOG01-1031",
+    "comspec": "C:\\Windows\\system32\\cmd.exe",
+    "deflogdir": "C:\\ProgramData\\McAfee\\Endpoint Security\\Logs",
+    "driverdata": "C:\\Windows\\System32\\Drivers\\DriverData",
+    "force_color": "1",
+    "fps_browser_app_profile_string": "Internet Explorer",
+    "fps_browser_user_profile_string": "Default",
+    "homedrive": "C:",
+    "homepath": "\\Users\\juan.suaterna",
+    "ionic_cli_bin": "C:\\Users\\juan.suaterna\\AppData\\Roaming\\npm\\node_modules\\ionic\\bin\\ionic",
+    "ionic_cli_lib": "C:\\Users\\juan.suaterna\\AppData\\Roaming\\npm\\node_modules\\ionic",
+    "ionic_cli_local_error": "LOCAL_CLI_NOT_FOUND",
+    "java_home": "C:\\Program Files\\Java\\jdk1.8.0_201",
+    "localappdata": "C:\\Users\\juan.suaterna\\AppData\\Local",
+    "logonserver": "\\\\SV10BOG010103",
+    "msmpi_bin": "C:\\Program Files\\Microsoft MPI\\Bin\\",
+    "number_of_processors": "8",
+    "onedrive": "C:\\Users\\juan.suaterna\\OneDrive - Thomas Greg",
+    "onedrivecommercial": "C:\\Users\\juan.suaterna\\OneDrive - Thomas Greg",
+    "os": "Windows_NT",
+    "path": "C:\\Users\\juan.suaterna\\OberonOCCA_V2\\node_modules\\.bin;C:\\Program Files\\Microsoft MPI\\Bin\\;C:\\Program Files (x86)\\Common Files\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\nodejs\\;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\140\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\140\\Tools\\Binn\\;C:\\Program Files\\Microsoft SQL Server\\140\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\140\\DTS\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\Client SDK\\ODBC\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Microsoft SQL Server\\140\\Tools\\Binn\\ManagementStudio\\;C:\\Windows\\system32\\config\\systemprofile\\.dnx\\bin;C:\\Program Files\\Microsoft DNX\\Dnvm\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\Program Files\\Microsoft SQL Server\\120\\Tools\\Binn\\;C:\\Program Files\\PuTTY\\;C:\\Users\\juan.suaterna\\AppData\\Local\\Programs\\Python\\Python38\\Scripts\\;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Users\\juan.suaterna\\AppData\\Local\\Programs\\Python\\Python38\\Scripts\\;C:\\Users\\juan.suaterna\\AppData\\Local\\Programs\\Python\\Python38\\;C:\\Users\\juan.suaterna\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\juan.suaterna\\AppData\\Roaming\\npm;C:\\Users\\juan.suaterna\\AppData\\Local\\atom\\bin",
+    "pathext": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JSE;.WSF;.WSH;.MSC",
+    "processor_architecture": "AMD64",
+    "processor_identifier": "Intel64 Family 6 Model 142 Stepping 10, GenuineIntel",
+    "processor_level": "6",
+    "processor_revision": "8e0a",
+    "programdata": "C:\\ProgramData",
+    "programfiles": "C:\\Program Files",
+    "programfiles(x86)": "C:\\Program Files (x86)",
+    "programw6432": "C:\\Program Files",
+    "prompt": "$P$G",
+    "psmodulepath": "C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules;C:\\Program Files (x86)\\Microsoft SQL Server\\140\\Tools\\PowerShell\\Modules\\",
+    "public": "C:\\Users\\Public",
+    "sessionname": "Console",
+    "systemdrive": "C:",
+    "systemroot": "C:\\Windows",
+    "temp": "C:\\Users\\JUAN~1.SUA\\AppData\\Local\\Temp",
+    "tmp": "C:\\Users\\JUAN~1.SUA\\AppData\\Local\\Temp",
+    "uatdata": "C:\\Windows\\CCM\\UATData\\D9F8C395-CAB8-491d-B8AC-179A1FE1BE77",
+    "userdnsdomain": "THOMASGREG.COM",
+    "userdomain": "THOMASGREG",
+    "userdomain_roamingprofile": "THOMASGREG",
+    "username": "juan.suaterna",
+    "userprofile": "C:\\Users\\juan.suaterna",
+    "vs110comntools": "C:\\Program Files (x86)\\Microsoft Visual Studio 11.0\\Common7\\Tools\\",
+    "vs120comntools": "C:\\Program Files (x86)\\Microsoft Visual Studio 12.0\\Common7\\Tools\\",
+    "vs140comntools": "C:\\Program Files (x86)\\Microsoft Visual Studio 14.0\\Common7\\Tools\\",
+    "WEBPACK_DEV_SERVER": "true",
+    "windir": "C:\\Windows"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Windows\\SYSTEM32\\ntdll.dll",
+    "C:\\Windows\\System32\\KERNEL32.DLL",
+    "C:\\Windows\\System32\\KERNELBASE.dll",
+    "C:\\Windows\\System32\\PSAPI.DLL",
+    "C:\\Windows\\System32\\WS2_32.dll",
+    "C:\\Windows\\System32\\RPCRT4.dll",
+    "C:\\Windows\\System32\\ADVAPI32.dll",
+    "C:\\Windows\\System32\\msvcrt.dll",
+    "C:\\Windows\\SYSTEM32\\dbghelp.dll",
+    "C:\\Windows\\System32\\sechost.dll",
+    "C:\\Windows\\System32\\ucrtbase.dll",
+    "C:\\Windows\\System32\\USER32.dll",
+    "C:\\Windows\\System32\\win32u.dll",
+    "C:\\Windows\\System32\\GDI32.dll",
+    "C:\\Windows\\System32\\gdi32full.dll",
+    "C:\\Windows\\System32\\msvcp_win.dll",
+    "C:\\Windows\\System32\\CRYPT32.dll",
+    "C:\\Windows\\System32\\MSASN1.dll",
+    "C:\\Windows\\SYSTEM32\\IPHLPAPI.DLL",
+    "C:\\Windows\\SYSTEM32\\USERENV.dll",
+    "C:\\Windows\\System32\\bcrypt.dll",
+    "C:\\Windows\\System32\\profapi.dll",
+    "C:\\Windows\\SYSTEM32\\WINMM.dll",
+    "C:\\Windows\\SYSTEM32\\WINMMBASE.dll",
+    "C:\\Windows\\System32\\cfgmgr32.dll",
+    "C:\\Windows\\System32\\IMM32.DLL",
+    "C:\\Windows\\System32\\powrprof.dll",
+    "C:\\Windows\\system32\\mswsock.dll",
+    "C:\\Windows\\System32\\kernel.appcore.dll",
+    "C:\\Windows\\System32\\bcryptprimitives.dll",
+    "C:\\Windows\\SYSTEM32\\ntmarta.dll",
+    "C:\\Windows\\system32\\napinsp.dll",
+    "C:\\Windows\\system32\\pnrpnsp.dll",
+    "C:\\Windows\\SYSTEM32\\DNSAPI.dll",
+    "C:\\Windows\\System32\\NSI.dll",
+    "C:\\Windows\\System32\\winrnr.dll",
+    "C:\\Windows\\system32\\NLAapi.dll",
+    "C:\\Windows\\system32\\wshbth.dll"
+  ]
+}

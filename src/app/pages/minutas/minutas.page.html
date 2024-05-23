@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+        {{ 'app.pages.Minutas.title.header' | translate }}
+    </ion-title>
+
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+  <div class="ion-no-margin" >
+    <!-- # -->
+
+      <ion-button icon-center size="medium"  expand="full" color="secondary" ion-button block (click)="PresentDetalle()"  tappable>
+      <!--<ion-button expand="block" fill="outline">-->
+        <ion-icon class="imgcolor" color="light" name="add-circle" ></ion-icon>&nbsp;&nbsp;Nuevo
+      </ion-button>
+      <ion-card>
+        <ion-item-divider color="dark">
+          Ultimas 20 Minutas Realizadas
+        </ion-item-divider>
+        <ion-card-content>
+          <div class="ion-no-margin" >
+            <!-- # -->
+            <ion-item  class="bg-white" *ngFor="let dat of dataAux"  (click)="PresentResumen(dat.MINUTA_ID)">
+              <ion-thumbnail slot="start">
+                <img [src]="stLRutaImg">
+
+              </ion-thumbnail>
+
+              <ion-label>
+              <h2>{{dat.NOV_DESCRIPCION}}</h2>
+              <ion-badge slot="end" color="secondary">
+                <h3>{{dat.TINO_DESCRIPCION}}</h3>
+              </ion-badge>
+              <p>{{dat.MINUTA_DESCRIPCION}}</p>
+             </ion-label>
+            </ion-item>
+            <!-- # -->
+          </div>
+        </ion-card-content>
+      </ion-card>
+
+
+
+
+    <!-- # -->
+  </div>
+</ion-content>

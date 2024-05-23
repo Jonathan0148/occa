@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+        {{ 'app.pages.broker.title.header' | translate }}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="profile">
+
+  <ion-card class="ion-no-margin dotted">
+    <ion-card-content class="bg-profile">
+      <img [src]="broker.picture">
+      <h1 class="fw500">{{broker.name}}</h1>
+      <h2 class="ion-margin-bottom">
+        <ion-text color="light">{{broker.title}}</ion-text>
+      </h2>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-no-margin bg-white dotted">
+    <ion-list class="ion-no-padding ion-no-margin">
+      <ion-item tappable href="tel: {{broker.phone}}">
+        <ion-label>
+          <h2 class="fw500"><ion-text color="primary">{{broker.phone}}</ion-text></h2>
+          <p><ion-text color="secondary">call office</ion-text></p>
+        </ion-label>
+        <ion-icon color="dark" name="call" slot="start"></ion-icon>
+      </ion-item>
+
+      <ion-item tappable href="tel: {{broker.mobilePhone}}">
+        <ion-label>
+          <h2 class="fw500"><ion-text color="primary">{{broker.mobilePhone}}</ion-text></h2>
+          <p><ion-text color="secondary">call mobile</ion-text></p>
+        </ion-label>
+        <ion-icon color="dark" name="phone-portrait" slot="start"></ion-icon>
+      </ion-item>
+
+      <ion-item tappable href="tel: {{broker.email}}">
+        <ion-label>
+          <h2 class="fw500"><ion-text color="primary">{{broker.email}}</ion-text></h2>
+          <p><ion-text color="secondary">email</ion-text></p>
+        </ion-label>
+        <ion-icon color="dark" name="mail" slot="start"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-button size="large" expand="full" color="primary" tappable (click)="scheduleVisit(broker.id)" class="ion-no-margin">
+    {{ 'app.pages.schedule.title.header' | translate }}
+    <ion-icon color="light" name="clock" slot="start"></ion-icon>
+  </ion-button>
+
+  <ion-button size="large" expand="full" color="secondary" tappable (click)="brokerChat(broker.id)" class="ion-no-margin">
+    {{ 'app.pages.chat.title.header' | translate }}
+    <ion-icon name="chatboxes" slot="start"></ion-icon>
+  </ion-button>
+
+</ion-content>

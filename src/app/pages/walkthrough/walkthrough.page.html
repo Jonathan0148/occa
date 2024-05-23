@@ -1,0 +1,39 @@
+<ion-content>
+
+    <ion-slides pager="true" dir="ltr" >
+      <ion-slide *ngFor="let datDet of dataAuxDet" class="bg-profile">
+        <div class="ion-padding">
+          <img [src]="datDet.Imagen" alt="ionProperty icons" class="ion-margin-bottom slide-image animated fadeInDown slow">
+          <h3 class="slide-title text-white animated fadeIn" [innerHTML]="datDet.CAP_TITULO"></h3>
+          <ion-text color="light">
+            <p [innerHTML]="datDet.CAP_MENSAJE" class="animated fadeIn"></p>
+          </ion-text>
+
+          <ion-button icon-left expand="full" shape="round" color="secondary" class="ion-margin-top" (click)="onSlideNext()">
+            Siguiente
+            <ion-icon name="arrow-round-forward"></ion-icon>
+          </ion-button>
+        </div>
+
+      </ion-slide>
+      <ion-slide class="bg-profileAux" *ngIf="stLEntra === '1'">
+
+        <div class="w100 ion-padding" >
+          <!--<img src="assets/img/icon.png" alt="ionProperty 2" class="slide-image animated fadeInDown slow">-->
+          <h1 class="slide-title text-white ion-margin-bottom">Bienvenid@</h1>
+          <!--<h2 class="slide-title text-white ion-margin-bottom">Vigilantes 1.0.0.2</h2>-->
+
+
+
+          <ion-button expand="full" shape="round" color="secondary" class="ion-margin-top" (click)="openLoginPage()">
+            Iniciar Sesión
+          </ion-button>
+
+        </div>
+
+
+
+      </ion-slide>
+    </ion-slides>
+
+</ion-content>

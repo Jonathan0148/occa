@@ -1,0 +1,130 @@
+:host {
+    ion-content {
+        --background: var(--ion-color-light);
+    }
+
+    ion-item {
+        border-radius: 0;
+        border-bottom: 1px dotted var(--ion-color-light);
+    }
+
+
+    .theme-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 0;
+        opacity: .4; //.12
+        background-image: url("/assets/img/ionproperty2-bg.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+agm-map {
+    height: 100px;
+    .gmnoprint {
+      display: none !important;
+    }
+}
+
+ion-slides {
+    height: 100%;
+    margin-top: 0;
+    overflow-y: scroll;
+  }
+
+  .toolbar-background {
+    background: var(--ion-color-primary) !important;
+    border-color: transparent;
+  }
+
+  .slide-title {
+    margin-top: 0;
+  }
+
+
+.card-img-status {
+    width: 120px;
+    position: absolute;
+    transform: rotate(45deg);
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    top: 5px;
+    right: -30px;
+    z-index: 99;
+    text-align: center;
+    &.closed {
+        background-color: rgba(var(--ion-color-primary-rgb), .8);
+    }
+    &.open {
+        background-color: rgba(var(--ion-color-success-rgb), .8);
+    }
+}
+
+.buttons-components-page {
+
+    ion-card {
+      margin-bottom: 2em;
+    }
+
+    ion-card-content {
+      background-color: #F4F5F8;
+    }
+
+    ion-card img {
+      width: auto;
+      display: block;
+      margin: 4% auto;
+    }
+
+  }
+
+  img {
+    border: 10px solid var(--colorbordimg);
+    border-radius: 40px;
+    padding: 10px;
+
+
+
+}
+
+
+
+button:hover  {
+    opacity: 0.20;
+  }
+
+ion-icon.imgcolor{
+  color:white;
+}
+
+
+.letra {
+    font-size: 4vw;
+    vertical-align: button;
+    color:  var(--ion-color-primary);
+    font-style: normal;
+    font-family: 'Arial';
+  }
+
+  button.btngridicon{
+
+    text-align: center;
+    padding: 0px 0px;
+    height: 43px;
+    background-color: transparent;
+  }
+
+  ion-select{
+   opacity: 1 !important;
+    font-size: 5vw;
+    font-weight: bold;
+    color:  var(--colorletRec);
+    font-style: normal;
+    font-family: 'Arial';
+  }
+
+}

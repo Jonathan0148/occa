@@ -1,0 +1,19 @@
+:host {
+    ion-content {
+      --background: linear-gradient(135deg, var(--ion-color-dark), var(--ion-color-primary))
+    }
+}
+
+.nearby-map {
+	agm-map {
+		width: 100%;
+		height: 94vh;
+	}
+}
+
+// agm-map {
+//     height: 72vh;
+//     .gmnoprint {
+//       display: none !important;
+//     }
+// }

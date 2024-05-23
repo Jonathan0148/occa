@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ 'app.pages.nearby.title.header' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <!-- # -->
+  <div id="nearby-map" class="nearby-map">
+		<agm-map *ngIf="nearProperties" [latitude]="nearProperties[0]?.lat" [longitude]="nearProperties[0]?.long" [zoom]="12">
+			<agm-marker *ngFor="let property of nearProperties"
+			 [latitude]="property.lat" [longitude]="property.long">
+				<agm-info-window>
+          <ion-item tappable routerLink="/property-detail/{{property.id}}">
+            <ion-thumbnail slot="start">
+              <img [src]="property.thumbnail">
+            </ion-thumbnail>
+            <ion-label>
+              <h3>
+                <strong>{{property.title}}</strong>
+              </h3>
+              <p class="ion-no-margin">
+                <ion-text color="primary">{{property.city}}, {{property.state}} •
+                  <span class="fw700">{{ property.price }}</span>
+                </ion-text>
+              </p>
+            </ion-label>
+          </ion-item>
+				</agm-info-window>
+			</agm-marker>
+		</agm-map>
+	</div>
+  <!-- # -->
+</ion-content>

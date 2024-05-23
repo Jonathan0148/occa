@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+        {{ 'app.pages.brokerlist.title.header' | translate }}
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+    <ion-list class="ion-no-padding ion-no-margin" [@staggerIn]="brokers">
+      <ion-item class="ion-no-padding" lines="none" *ngFor="let broker of brokers" tappable routerLink="/broker-detail/{{broker.id}}">
+        <ion-thumbnail class="ion-margin" slot="start">
+            <img [src]="broker.picture">
+          </ion-thumbnail>
+        <ion-label>
+          <h2 class="fw700 text08">
+            <ion-text color="dark">{{broker.name}}</ion-text>
+          </h2>
+          <p>
+            <ion-text color="primary">{{ broker.title }}</ion-text>
+          </p>
+        </ion-label>
+        <ion-badge color="primary">
+          <ion-icon name="arrow-forward"></ion-icon>
+        </ion-badge>
+      </ion-item>
+    </ion-list>
+</ion-content>

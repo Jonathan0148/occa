@@ -1,0 +1,117 @@
+:host {
+    ion-content {
+        --background: var(--ion-color-light);
+
+    }
+
+    ion-item {
+        border-radius: 0;
+        border-bottom: 1px dotted var(--ion-color-light);
+    }
+
+
+
+agm-map {
+    height: 100px;
+    .gmnoprint {
+      display: none !important;
+    }
+}
+
+ion-slides {
+    box-shadow: 0 3px 16px rgba(var(--ion-color-dark-rgb),.4);
+    ion-slide {
+        .shadow {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+        box-shadow: inset 0 0 15rem rgba(var(--ion-color-primary-rgb), .95)
+        }
+    }
+}
+
+.card-img-status {
+    width: 120px;
+    position: absolute;
+    transform: rotate(45deg);
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    top: 3px;
+    right: -30px;
+    z-index: 99;
+    text-align: center;
+    &.closed {
+        background-color: rgba(var(--ion-color-primary-rgb), .8);
+    }
+    &.open {
+        background-color: rgba(var(--ion-color-success-rgb), .8);
+    }
+}
+
+.buttons-components-page {
+
+    ion-card {
+      margin-bottom: 1em;
+    }
+
+    ion-card-content {
+      background-color: #F4F5F8;
+    }
+
+    ion-card img {
+      width: auto;
+      display: block;
+      margin: 3% auto;
+    }
+
+  }
+
+  img {
+    border: 10px solid var(--colorbordimg);
+    border-radius: 40px;
+    padding: 10px;
+
+
+
+}
+
+
+
+button:hover  {
+    opacity: 0.20;
+  }
+
+ion-icon.imgcolor{
+  color:white;
+}
+
+
+.letra {
+    font-size: 4vw;
+    vertical-align: button;
+    color:  var(--ion-color-primary);
+    font-style: normal;
+    font-family: 'Arial';
+  }
+
+  button.btngridicon{
+
+    text-align: center;
+    padding: 0px 0px;
+    height: 43px;
+    background-color: transparent;
+  }
+
+  ion-select{
+   opacity: 1 !important;
+    font-size: 4vw;
+    font-weight: bold;
+    //color:  black;
+    font-style: normal;
+    font-family: 'Arial';
+  }
+
+}

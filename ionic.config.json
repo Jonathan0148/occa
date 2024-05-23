@@ -1,0 +1,9 @@
+{
+  "name": "Oberón OCCA",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "ca339cf9"
+}

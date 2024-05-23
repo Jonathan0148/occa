@@ -1,0 +1,31 @@
+:host {
+    ion-content {
+        // --background: linear-gradient(-135deg, var(--ion-color-dark), var(--ion-color-primary))
+        --background: var(--ion-color-light);
+    }
+
+    ion-item {
+        border-radius: 0;
+        border-bottom: 1px dotted var(--ion-color-medium);
+    }
+
+    ion-card {
+        border-radius: 0;
+    }
+
+    .fondo {
+      background: var(--ion-color-btn);
+  }
+
+  .fondoEnc {
+    background-color:#f20141;
+}
+
+}
+
+
+// ion-item {
+//     .item-native {
+//         border-radius: .5rem;
+//     }
+// }

@@ -1,0 +1,136 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-text color="light">
+        {{ 'app.pages.propertylist.title.header' | translate }} <span *ngIf="label" class="fw300">( for {{label}} )</span>
+      </ion-text>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" (click)="settings()">
+        <ion-icon name="cog"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar color="dark">
+      <ion-searchbar [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
+      <ion-buttons slot="end">
+        <ion-button size="small" shape="round" color="medium" (click)="searchFilter()">
+          <ion-icon name="options"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid class="ion-no-padding" fixed>
+    <ion-row class="ion-no-padding">
+      <ion-col class="ion-no-padding">
+
+        <ion-card class="ion-no-margin bg-white no-radius">
+          <ion-item lines="none">
+            <ion-label class="fw700">
+              <ion-text color="dark">{{ 'app.pages.propertylist.label.type' | translate }}:</ion-text>
+            </ion-label>
+            <ion-select [(ngModel)]="proptype" color="primary">
+              <ion-select-option *ngFor="let type of catList" [value]="type.value">
+                <ion-text color="primary">{{type.label}}</ion-text>
+              </ion-select-option>
+            </ion-select>
+          </ion-item>
+        </ion-card>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="ion-no-margin" *ngIf="viewMode === 'list'" [@staggerIn]="properties">
+    <ion-card class="bg-white" *ngFor="let property of properties | termSearch:proptype:'tags' | termSearch:label:'label'">
+      
+      <span class="card-img-status fw500 text-white" [ngClass]="{'closed': property.label === 'rent', 'open': property.label === 'sale'}">
+        {{ property.label }}
+      </span>
+
+      <ion-badge slot="start" color="secondary" class="float">
+        <ion-icon name="star" color="light"></ion-icon>
+        <ion-text color="light">{{ property.price }}</ion-text>
+        <sup class="fw500" *ngIf="property.period === 'week'">/week</sup>
+        <sup *ngIf="property.period === 'month'">/month</sup>
+      </ion-badge>
+
+      <img [src]="property.picture" (load)="loaded = true" [ngClass]="{'img-loaded':loaded}" [hidden]="!loaded" tappable routerLink="/property-detail/{{property.id}}" />
+      <ion-spinner [ngClass]="{'center':true}" *ngIf="!loaded"></ion-spinner>
+
+      <ion-card-header>
+
+          <ion-fab vertical="top" horizontal="end" edge>
+            <ion-fab-button (click)="favorite(property)">
+              <ion-icon name="heart"></ion-icon>
+            </ion-fab-button>
+          </ion-fab>
+
+          <ion-card-subtitle>       
+            <ion-text color="primary">{{property.city}}, {{property.state}}</ion-text>
+          </ion-card-subtitle>
+         
+          <ion-card-title class="ion-margin-bottom" tappable routerLink="/property-detail/{{property.id}}">           
+            <ion-text color="dark">{{property.title}}</ion-text>
+          </ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content class="ion-no-padding">
+        <ion-chip color="secondary" outline="true" class="bot">
+          <ion-label color="secondary">
+            <ion-icon name="moon"></ion-icon> {{property.bedrooms}} |
+            <ion-icon name="leaf"></ion-icon> {{property.bathrooms}}
+          </ion-label>
+        </ion-chip> 
+      </ion-card-content>
+
+    </ion-card>
+  </div>
+
+  <div class="ion-no-margin" *ngIf="viewMode === 'map'">
+  <!-- # -->
+  <div id="nearby-map" class="nearby-map">
+      <agm-map [latitude]="properties[0].lat" [longitude]="properties[0].long" [zoom]="12">
+        <agm-marker *ngFor="let property of properties | termSearch:proptype:'tags'"
+         [latitude]="property.lat" [longitude]="property.long">
+          <agm-info-window>
+            <ion-item tappable routerLink="/property-detail/{{property.id}}">
+              <ion-thumbnail slot="start">
+                <img [src]="property.thumbnail">
+              </ion-thumbnail>
+              <ion-label>
+                <h3>
+                  <strong>{{property.title}}</strong>
+                </h3>
+                <p class="ion-no-margin">
+                  <ion-text color="primary">{{property.city}}, {{property.state}} •
+                    <span class="fw700">{{ property.price }}</span>
+                  </ion-text>
+                </p>
+              </ion-label>
+            </ion-item>
+          </agm-info-window>
+        </agm-marker>
+      </agm-map>
+    </div>
+    <!-- # -->
+  </div>
+
+</ion-content>
+
+<ion-footer class="bg-dark">
+    <ion-segment color="light" [(ngModel)]="viewMode">
+        <ion-segment-button value="list">
+            <ion-icon name="list"></ion-icon>
+        </ion-segment-button>
+        <ion-segment-button value="map">
+            <ion-icon name="map"></ion-icon>
+        </ion-segment-button>
+    </ion-segment>
+</ion-footer>

@@ -1,0 +1,107 @@
+<ion-content class="ion-padding animated fadeIn login auth-page">
+  <div class="theme-bg"></div>
+  <div class="auth-content">
+
+    <!-- Logo -->
+    <div class="animated fadeInDown ion-text-center ion-padding-horizontal">
+      <div class="logo"></div>
+      <h4 class="ion-no-margin">
+        <!--<ion-text color="light" class="fw700">
+          {{ 'app.namea' | translate }}<ion-text color="tertiary">{{ 'app.nameb' | translate }}</ion-text>
+          {{ 'app.version' | translate }}
+        </ion-text>
+        -->
+      </h4>
+    </div>
+
+    <!-- Login form -->
+    <form [formGroup]="onLoginForm" class="list-form">
+      <ion-item class="ion-no-padding animated fadeInUp">
+        <ion-label position="floating">
+          <ion-icon name="ios-person" item-start></ion-icon>
+          {{ 'app.label.email' | translate }}
+        </ion-label>
+        <ion-input color="secondary" type="email" formControlName="email" [(ngModel)]="email"></ion-input>
+      </ion-item>
+      <p ion-text class="text08" *ngIf="onLoginForm.get('email').touched && onLoginForm.get('email').hasError('required')">
+        <ion-text color="dark">
+          {{ 'app.label.errors.field' | translate }}
+        </ion-text>
+      </p>
+
+      <ion-item class="ion-no-padding animated fadeInUp">
+        <ion-label position="floating">
+          <ion-icon name="lock" item-start></ion-icon>
+          {{ 'app.label.password' | translate }}
+        </ion-label>
+        <ion-input color="secondary" type="password" formControlName="password" [(ngModel)]="password"></ion-input>
+      </ion-item>
+      <p ion-text color="dark" class="text08" *ngIf="onLoginForm.get('password').touched && onLoginForm.get('password').hasError('required')">
+        <ion-text color="dark">
+          {{ 'app.label.errors.field' | translate }}
+        </ion-text>
+        </p>
+    </form>
+
+    <p tappable (click)="forgotPass()" class="ion-text-right paz">
+      <ion-text color="dark">
+        <strong>{{ 'app.pages.login.label.forgot' | translate }}</strong>
+      </ion-text>
+    </p>
+
+    <div>
+      <ion-button icon-left size="medium" expand="full" shape="round" color="dark" (click)="goToHome()" [disabled]="!onLoginForm.valid" tappable>
+        <ion-icon name="log-in"></ion-icon>
+        {{ 'app.button.signin' | translate }}
+      </ion-button>
+
+      <!--
+      <p class="ion-text-center">
+        <ion-text color="light">
+          Or {{ 'app.button.signin' | translate }} with:
+        </ion-text>
+      </p>
+      <!--
+      <ion-grid class="btn-group">
+        <ion-row>
+          <ion-col size="4">
+            <ion-button shape="round" expand="full" color="secondary">
+              <ion-icon slot="icon-only" name="logo-facebook"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size="4">
+            <ion-button shape="round" expand="full" color="secondary">
+              <ion-icon slot="icon-only" name="logo-twitter"></ion-icon>
+            </ion-button>
+          </ion-col>
+          <ion-col size="4">
+            <ion-button shape="round" expand="full" color="secondary">
+              <ion-icon slot="icon-only" name="logo-googleplus"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      -->
+    </div>
+    <!--
+    <div class="ion-text-center ion-margin-top">
+      <span (click)="goToRegister()" class="paz" tappable>
+        <ion-text color="light">
+          New here? <strong>{{ 'app.button.signup' | translate }}</strong>
+        </ion-text>
+      </span>
+    </div>
+    -->
+    <div class="animated fadeInUp ion-text-center ion-padding-horizontal">
+      <div class="logoFoot"></div>
+      <h6 class="ion-no-margin">
+        <ion-text color="danger" class="cversion">
+          Versión {{ 'app.version' | translate }}
+        </ion-text>
+
+      </h6>
+
+    </div>
+  </div>
+
+</ion-content>

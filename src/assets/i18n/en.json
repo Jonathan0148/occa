@@ -1,0 +1,159 @@
+{
+    "app.name": "Thomas Mobile Supervisor",
+    "app.cliente": "Thomas Mobile",
+    "app.namea": "Thomas Mobile",
+    "app.nameb": "Thomas Mobile",
+    "app.version": "1.0.0.3",
+    "app.description": "Thomas Mobile Supervisor",
+
+    "app.button.search": "Buscar en Oberón",
+    "app.button.checkout": "Checkout",
+    "app.button.moreresults": "More Results",
+    "app.button.callus": "Call us",
+    "app.button.fav": "Favorite",
+    "app.button.share": "Share",
+    "app.button.signin": "Ingresar",
+    "app.button.signup": "Sign up",
+    "app.button.nearby": "Nearby",
+    "app.button.linterna": "Linterna",
+    "app.button.panico": "S.O.S",
+    "app.button.llamar": "Central",
+    "app.button.bycategory": "Category",
+    "app.button.invoices": "Invoices",
+
+    "app.label.booked": "Booked",
+    "app.label.book": "Book",
+    "app.label.resultsf": "Results Found!",
+    "app.label.cc": "Credit Card",
+    "app.label.ch": "Card Holder",
+    "app.label.cn": "Card Number",
+    "app.label.pp": "Paypal",
+    "app.label.freecancel": "free cancellation",
+    "app.label.average": "Average",
+    "app.label.averageprice": "average price",
+    "app.label.totalvat": "Total + VAT",
+    "app.label.total": "Total",
+    "app.label.voucher": "Voucher",
+    "app.label.description": "Description",
+    "app.label.location": "Location",
+
+    "app.label.userdata": "User Data",
+    "app.label.usertype": "User Type",
+    "app.label.edit": "Edit",
+    "app.label.insertavatar": "Insert Avatar",
+    "app.label.name": "Name",
+    "app.label.fullname": "Full Name",
+    "app.label.address": "Address",
+    "app.label.city": "City",
+    "app.label.state": "State",
+    "app.label.email": "Empleado",
+    "app.label.password": "Contraseña",
+    "app.label.details": "Details",
+    "app.label.rating": "Rating",
+    "app.label.about": "About",
+    "app.label.amenities": "Amenities",
+    "app.label.features": "Features",
+    "app.label.selectlocal": "Select Local",
+    "app.label.Bienvenido": "Bienvenido",
+
+    "app.label.errors.field": "Campos Requeridos",
+
+    "app.pages.extras.title.header": "Extras pages",
+    "app.pages.extras.profileone.title.header": "Profile One",
+    "app.pages.extras.profiletwo.title.header": "Profile Two",
+    "app.pages.extras.timeline.title.header": "Timeline",
+    "app.pages.extras.auth.title.header": "Authentication",
+    "app.pages.extras.popupmenu.title.header": "Popup menu",
+    "app.pages.extras.charts.title.header": "Charts",
+    "app.pages.extras.post.title.header": "Blog Post",
+
+    "app.pages.menu.home": "Home",
+    "app.pages.menu.booking": "Booking List",
+    "app.pages.menu.favorites": "Favorites",
+    "app.pages.menu.rentacar": "Rent a Car",
+    "app.pages.menu.activities": "Trip Activities",
+    "app.pages.menu.activitiestab": "Activities",
+    "app.pages.menu.logout": "Logout",
+    "app.pages.menu.editprofile": "Edit Profile",
+    "app.pages.menu.weather": "Local Weather",
+    "app.pages.menu.about": "About App",
+    "app.pages.menu.settings": "Settings",
+    "app.pages.menu.support": "Support",
+
+    "app.pages.TomarAistencia.title.header": "Apertura y Cierre de Turnos",
+    "app.pages.Directorio.title.header": "Directorio Telefónico",
+    "app.pages.Funciones.title.header": "Funciones del Puesto",
+    "app.pages.Minutas.title.header": "Minutas",
+    "app.pages.Rondas.title.header": "Ruta",
+    "app.pages.Acercade.title.header": "Acerca de Oberón",
+    "app.pages.CambiarPWD.title.header": "Cambiar Contraseña",
+    "app.pages.ResumenMinuta.title.header": "Resumen de Minuta",
+    "app.pages.NewMinutas.title.header": "Nueva Minuta",
+    "app.pages.Puntos.title.header": "Puntos de Ruta",
+    "app.pages.Capacitacion.title.header": "!Lo que usted debería conocer!",
+    "app.pages.CapacitacionDet.title.header": "Capacitación",
+    "app.pages.domotica.title.header": "Panel de Control",
+
+    "app.pages.General.Guardar": "Guardar Registro",
+    "app.pages.General.TomarFoto": "Tomar Foto",
+    "app.pages.General.Limpiar": "Limpiar",
+    "app.pages.General.ActrMic": "Activar Micrófono",
+    "app.pages.ReconocimientoFac.title.header": "Reconocimiento",
+
+
+
+
+    "app.pages.about.title.header": "About",
+    "app.pages.support.title.header": "Support",
+
+    "app.pages.editprofile.title.header": "Edit Profile",
+    "app.pages.editprofile.avail.text": "Available to chat w/ Brokers?",
+
+    "app.pages.favorites.title.header": "Favorites",
+    "app.pages.favorites.title.nores": "You have no favorite properties.",
+
+    "app.pages.login.label.forgot": "¿Olvido su Contraseña?",
+    "app.pages.login.text.forgot": "Enter you email address to send a reset link password.",
+    "app.pages.login.text.sended": "Email was sended successfully.",
+
+    "app.pages.register.title.header": "Register",
+    "app.pages.register.label.ihave": "I have an account!",
+
+    "app.pages.homelocation.label.setlocation": "Set location",
+    "app.pages.homelocation.label.or": "Or",
+    "app.pages.homelocation.label.mylocation": "Current location",
+
+    "app.pages.homeresults.label.rnear": "Properties near you",
+    "app.pages.homeresults.label.or": "Or",
+    "app.pages.homeresults.label.mylocation": "Current location",
+
+    "app.pages.bycategory.title.header": "Properties by category",
+    "app.pages.nearby.title.header": "Nearby Properties",
+
+    "app.pages.message.title.header": "Message",
+    "app.pages.messages.title.header": "Messages",
+    "app.pages.messages.label.error": "You have no messages.",
+
+    "app.pages.settings.title.header": "App Settings",
+
+    "app.pages.propertylist.title.header": "Properties",
+    "app.pages.propertylist.label.type": "Property Type",
+
+    "app.pages.broker.title.header": "Broker",
+    "app.pages.brokerlist.title.header": "Broker List",
+
+    "app.pages.favoriteproperties.title.header": "Favorite Properties",
+
+    "app.pages.schedule.title.header": "Schedule a visit",
+    "app.pages.schedule.title.text": "Schedule",
+
+    "app.pages.chat.title.header": "Chat with Broker",
+    "app.pages.chat.title.text": "Chat",
+
+    "app.pages.checkout.title.header": "Checkout",
+
+
+    "app.pages.invoices.title.header": "Invoices"
+
+
+}

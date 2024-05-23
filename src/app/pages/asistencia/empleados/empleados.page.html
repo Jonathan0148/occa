@@ -1,0 +1,74 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+        {{ 'app.pages.TomarAistencia.title.header' | translate }}
+    </ion-title>
+    <!--
+    <ion-buttons slot="end">
+      <ion-button size="small" shape="round" (click)="favorite(property)">
+        <ion-icon name="heart"></ion-icon>
+      </ion-button>
+      <ion-button size="small" shape="round" (click)="share()">
+          <ion-icon name="share"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    -->
+  </ion-toolbar>
+
+  <ion-toolbar color="dark" class="ion-text-center">
+
+      <ion-searchbar placeholder="Buscar Empleado" [(ngModel)]="searchKey" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)"></ion-searchbar>
+      <ion-buttons slot="end">
+      <!--<ion-button size="small" shape="round" color="medium" (click)="searchFilter()">-->
+        <ion-button (click)="GetEmplBusqueda()" size="small" shape="round" color="medium" >
+          <ion-icon ios="ios-search" md="md-search"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-no-margin" >
+    <!-- # -->
+    <!--<ion-item  class="bg-white" *ngFor="let dat of dataAux" tappable [routerLink]="['reconocimiento',dat.EMPL_IDEMPLEADO]">-->
+    <div *ngIf="stLEstado === '0'" class="center">
+      <ion-label>
+        <h2>
+          <ion-text color="dark"><strong>{{stLInfo}}</strong></ion-text>
+        </h2>
+      </ion-label>
+
+    <!-- # -->
+    </div>
+    <div *ngIf="stLEstado === '1'">
+      <ion-item  class="bg-white" *ngFor="let dat of dataAux" tappable (click)="PresentReconocimiento(dat.EMPL_IDEMPLEADO)">
+        <ion-thumbnail slot="start">
+          <img [src]="dat.RUTA">
+
+        </ion-thumbnail>
+
+        <ion-label>
+          <h2>
+              <ion-text color="dark"><strong>{{dat.EMPLEADO_NOMBRE_COMP}}</strong></ion-text>
+          </h2>
+          <p class="text-12x">
+            <ion-text color="primary">{{dat.CARGCON_DESCRIPCION}}</ion-text>
+          </p>
+          <!--
+          <ion-badge slot="end" color="danger">
+            <ion-text color="light">En turno</ion-text>
+          </ion-badge>
+  -->
+
+
+        </ion-label>
+      </ion-item>
+      <!-- # -->
+    </div>
+  </div>
+</ion-content>

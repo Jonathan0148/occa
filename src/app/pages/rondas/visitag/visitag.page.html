@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <!--<ion-back-button></ion-back-button>-->
+      <ion-button size="small" shape="round" (click)="closeModal()" color="tertiary">
+        <ion-icon slot="start" name="arrow-round-back" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+        Registrar Precintos en Operación
+    </ion-title>
+
+  </ion-toolbar>
+  <ion-toolbar color="dark">
+    <ion-searchbar [(ngModel)]="searchKey"></ion-searchbar>
+    <ion-buttons slot="end">
+      <!--<ion-button size="small" shape="round" color="medium" (click)="searchFilter()">-->
+      <ion-button (click)="getATMBusqueda()" size="small" shape="round" color="medium" >
+        <ion-icon ios="ios-search" md="md-search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding class="buttons-components-page">
+  <div class="ion-no-margin" >
+    <ion-card>
+      <ion-item-divider color="primary">Precintos Disponibles</ion-item-divider>
+      <ion-card-content>
+        <div class="ion-no-margin" >
+          <ion-item   color="warning" *ngFor="let dat of dataAux">
+        <ion-icon ios="ios-disc" md="md-disc" color="danger" slot="start"></ion-icon>
+        <ion-label>
+          <h2 no-margin class="fw500 no-margin">
+            <ion-text class="fw500 no-margin" color="dark">{{dat.PUNTO_NOMBRE}}</ion-text>
+          </h2>
+          <p class="lpuesto">
+            <ion-text >ATM - {{dat.PUNTO_ATM}} - {{dat.LLAV_ESTADO}}</ion-text>
+          </p>
+          <p class="lpuesto">
+            <ion-text >Precinto:  {{dat.PREC_ID}}</ion-text>
+          </p>
+          <p class="lpuesto">
+            <ion-text >Ubicación: {{dat.UBICACION}}</ion-text>
+          </p>
+          <p class="lpuesto">
+            <ion-text >Zona: {{dat.ZON_NOMBRE}}</ion-text>
+          </p>
+        </ion-label>
+       <!--<ion-note slot="end" color="danger" (click)="presentwritenfc(dat.PREC_ID,'0')" >Asignar</ion-note>-->
+      </ion-item>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+
+
+
+
+
+</div>
+
+
+</ion-content>

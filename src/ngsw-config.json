@@ -1,0 +1,43 @@
+{
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "ionProperty2",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/robots.txt",
+          "/favicon.ico",
+          "/index.html",
+          "/*.css",
+          "/*.js"
+        ]
+      }
+    }, {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**"
+        ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "ionictheme.com",
+      "urls": [
+        "https://ionproperty2.ionictheme.com/**",
+        "https://ionproperty2.firebaseapp.com/**"
+      ],
+      "cacheConfig": {
+        "maxSize": 100,
+        "maxAge": "7d",
+        "timeout": "1m",
+        "strategy": "performance"
+      }
+    }
+  ]
+}
+

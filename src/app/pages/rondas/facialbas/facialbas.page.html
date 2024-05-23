@@ -1,0 +1,229 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <!--<ion-back-button></ion-back-button>-->
+      <ion-button size="small" shape="round" (click)="closeModal()" color="tertiary">
+        <ion-icon slot="start" name="arrow-round-back" color="light"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+
+
+    <ion-title>
+        Control de Acceso
+    </ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+<ion-content>
+
+  <ion-grid class="ion-no-padding" fixed>
+     <ion-row class="ion-no-padding">
+       <ion-col class="ion-no-padding">
+         <ion-button class="ion-no-margin" expand="full" size="medium" [color]="stLColorTab1"  (click)="SrOpenTab('0')">
+           Acceso al ATM
+         </ion-button>
+       </ion-col>
+
+     </ion-row>
+
+  <div *ngIf="TabPosition === '0'">
+    <ion-item-group>
+      <ion-item-divider [color]="ColorAsistencia"></ion-item-divider>
+
+      <!--<div padding>
+        <ion-button icon-left size="medium" shape="round" expand="full" color="dark" ion-button block (click)="SrIngresar(onReconocimientoForm)" [disabled]="!onReconocimientoForm.valid" tappable>
+          Guardar
+          <ion-icon name="checkmark-circle"></ion-icon>
+        </ion-button>
+      </div>
+      -->
+      </ion-item-group>
+  <ion-card>
+    <ion-card-content>
+      <img  [src]="stbase64ImageAux" *ngIf="stbase64ImageAux" />
+
+    </ion-card-content>
+
+    <!--<ion-item color="dark">-->
+    <!--<button class="btngridicon" ion-button icon-only clear icon-center item-end (click)="SrCapturarFoto()"><div text-center><ion-icon class="imgcolor" name="ios-reverse-camera" style="zoom:2.0;" ></ion-icon></div></button>-->
+    <ion-button icon-center size="medium"  expand="full" [color]="ColorAsistencia" ion-button block (click)="SrCapturarFoto()"  tappable>
+    <!--<ion-button expand="block" fill="outline">-->
+      <ion-icon class="imgcolor" name="ios-reverse-camera" style="zoom:2.0;" ></ion-icon>
+    </ion-button>
+
+    <!--</ion-item>-->
+  </ion-card>
+<!--
+  <ion-item-group>
+  <ion-item-divider color="danger">Sin Asistencia</ion-item-divider>
+    <ion-item [color]="ColorAsistencia">
+
+        <ion-label>
+          <h2 no-margin class="fw500 no-margin">
+            <ion-text [color]="ColorLetAsistencia">{{MensajeIdentifica}}</ion-text>
+          </h2>
+        </ion-label>
+       <ion-note slot="end" [color]="ColorLetAsistencia">{{stLIdentical}}</ion-note>
+      </ion-item>
+      <!--
+      <ion-item>
+
+        <ion-label>
+          <h2 no-margin class="fw500 no-margin">
+            <ion-text color="dark">Nivel</ion-text>
+          </h2>
+        </ion-label>
+       <ion-note slot="end" color="dark">{{inLConfidence}}%</ion-note>
+      </ion-item>
+
+
+    </ion-item-group>
+      -->
+</div>
+<!--
+<div *ngIf="TabPosition === '1'">
+
+      <ion-item-group>
+        <ion-item-divider color="primary">Niveles de Emoción</ion-item-divider>
+        <ion-item *ngIf="Enojado > 0">
+
+          <ion-label>
+            <h2 no-margin class="fw500 no-margin">
+              <ion-text color="dark">Enojado</ion-text>
+            </h2>
+          </ion-label>
+         <ion-note slot="end" color="primary">{{stLIracundo}}%</ion-note>
+        </ion-item>
+
+        <ion-item *ngIf="stLArrogante > 0">
+
+          <ion-label>
+            <h2 no-margin class="fw500 no-margin">
+              <ion-text color="dark">Arrogancia</ion-text>
+            </h2>
+          </ion-label>
+         <ion-note slot="end" color="primary">{{stLArrogante}}%</ion-note>
+        </ion-item>
+
+        <ion-item *ngIf="stLDesagrado > 0">
+
+          <ion-label>
+            <h2 no-margin class="fw500 no-margin">
+              <ion-text color="dark">Desagrado</ion-text>
+            </h2>
+          </ion-label>
+         <ion-note slot="end" color="primary">{{stLDesagrado}}%</ion-note>
+        </ion-item>
+
+        <ion-item *ngIf="stLMiedo > 0">
+
+          <ion-label>
+            <h2 no-margin class="fw500 no-margin">
+              <ion-text color="dark">Miedo</ion-text>
+            </h2>
+          </ion-label>
+         <ion-note slot="end" color="primary">{{stLMiedo}}%</ion-note>
+        </ion-item>
+
+        <ion-item *ngIf="stLFelicidad > 0">
+
+          <ion-label>
+            <h2 no-margin class="fw500 no-margin">
+              <ion-text color="dark">Felicidad</ion-text>
+            </h2>
+          </ion-label>
+         <ion-note slot="end" color="primary">{{stLFelicidad}}%</ion-note>
+        </ion-item>
+
+        <ion-item *ngIf="stLNeutral > 0">
+
+          <ion-label>
+            <h2 no-margin class="fw500 no-margin">
+              <ion-text color="dark">Neutral</ion-text>
+            </h2>
+          </ion-label>
+         <ion-note slot="end" color="primary">{{stLNeutral}}%</ion-note>
+        </ion-item>
+
+        <ion-item *ngIf="stLTristeza > 0">
+
+          <ion-label>
+            <h2 no-margin class="fw500 no-margin">
+              <ion-text color="dark">Tristeza</ion-text>
+            </h2>
+          </ion-label>
+         <ion-note slot="end" color="primary">{{stLTristeza}}%</ion-note>
+        </ion-item>
+
+        <ion-item *ngIf="stLSorpresa > 0">
+
+          <ion-label>
+            <h2 no-margin class="fw500 no-margin">
+              <ion-text color="dark">Sorprendido</ion-text>
+            </h2>
+          </ion-label>
+         <ion-note slot="end" color="primary">{{stLSorpresa}}%</ion-note>
+        </ion-item>
+
+
+
+      </ion-item-group>
+
+      <ion-item-group>
+        <ion-item-divider color="primary">Datos Generales</ion-item-divider>
+        <ion-item>
+
+          <ion-label>
+            <h2 no-margin class="fw500 no-margin">
+              <ion-text color="dark">Genero</ion-text>
+            </h2>
+          </ion-label>
+         <ion-note slot="end" color="primary">{{stLGenero}}</ion-note>
+        </ion-item>
+        <ion-item>
+
+          <ion-label>
+            <h2 no-margin class="fw500 no-margin">
+              <ion-text color="dark">Edad Aprox</ion-text>
+            </h2>
+          </ion-label>
+         <ion-note slot="end" color="primary">{{stLEdad}}</ion-note>
+        </ion-item>
+
+        <ion-item>
+
+          <ion-label>
+            <h2 no-margin class="fw500 no-margin">
+              <ion-text color="dark">Gafas</ion-text>
+            </h2>
+          </ion-label>
+         <ion-note slot="end" color="primary">{{stLGafas}}</ion-note>
+        </ion-item>
+
+        <ion-item>
+
+          <ion-label>
+            <h2 no-margin class="fw500 no-margin">
+              <ion-text color="dark">Postura</ion-text>
+            </h2>
+          </ion-label>
+         <ion-note slot="end" color="primary">{{stLPostura}}</ion-note>
+        </ion-item>
+
+        <ion-item>
+
+          <ion-label>
+            <h2 no-margin class="fw500 no-margin">
+              <ion-text color="dark">Nivel</ion-text>
+            </h2>
+          </ion-label>
+         <ion-note slot="end" color="primary">{{inLPostura}}%</ion-note>
+        </ion-item>
+    </ion-item-group>
+  </div>
+  -->
+
+  </ion-grid>
+</ion-content>
