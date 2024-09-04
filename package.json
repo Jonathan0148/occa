@@ -26,15 +26,15 @@
   "dependencies": {
     "@agm/core": "1.0.0",
     "@angular/animations": "~8.2.13",
-    "@angular/cli": "^8.3.29",
+    "@angular/cli": "^9.1.13",
     "@angular/common": "~8.2.13",
-    "@angular/core": "^8.2.14",
+    "@angular/core": "^9.1.13",
     "@angular/forms": "~8.2.13",
     "@angular/http": "^7.2.15",
     "@angular/platform-browser": "~8.2.13",
     "@angular/platform-browser-dynamic": "~8.2.13",
     "@angular/pwa": "~0.803.17",
-    "@angular/router": "~8.2.13",
+    "@angular/router": "^9.1.13",
     "@angular/service-worker": "~8.2.13",
     "@ionic-native/android-permissions": "^5.17.1",
     "@ionic-native/background-geolocation": "^5.26.0",
@@ -100,6 +100,7 @@
     "phonegap-nfc": "^1.0.4",
     "rxjs": "~6.5.3",
     "tslib": "^1.9.0",
+    "update": "^0.7.4",
     "zone.js": "^0.9.1"
   },
   "devDependencies": {
@@ -126,7 +127,7 @@
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",
-    "typescript": "~3.4.3"
+    "typescript": "~3.8"
   },
   "description": "Oberón Vigilantes",
   "cordova": {
